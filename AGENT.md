@@ -10,10 +10,16 @@ Hosted on Firebase Hosting. No build step. No framework. Self-contained HTML fil
 
 ```
 public/
-├── index.html              ← Homepage
+├── index.html              ← Homepage (Platform + AI + Community showcase)
 ├── about.html              ← About / Founders
-├── how-it-works.html       ← How It Works
+├── how-it-works.html       ← How It Works & Trust Lifecycle
+├── technology.html         ← AI & Google Cloud Architecture showcase
 ├── join.html               ← Join the Founding Squad (Firebase form)
+├── privacy.html            ← Privacy Policy (DPDP Act)
+├── terms.html              ← Terms of Service
+├── delete-account.html     ← Account & Data Deletion Guide
+├── shared-shell.css        ← Base nav/drawer/footer layout for subpages
+├── brand-refresh.css       ← Authoritative 60-30-10 theme & component styles
 ├── 404.html                ← Error page
 ├── blog/
 │   ├── index.html          ← Journal landing page  ← THIS IS THE LIVE BLOG PAGE
@@ -24,8 +30,8 @@ public/
 │   └── wardrobe-1-lakh-guide.html
 ├── assets/                 ← All images
 ├── BRAND-GUIDELINES.md
-├── STRUCTURE.md
-└── AGENT.md                ← This file
+└── STRUCTURE.md
+AGENT.md                    ← This file (at repo root)
 ```
 
 **Critical:** The live journal page is `public/blog/index.html` — NOT `blog-index.html` at root level.
@@ -225,16 +231,17 @@ const puppeteer = require('puppeteer');
 ---
 
 ## Brand Voice Rules
-- CTA: "Join the Founding Squad" (everywhere) or "Join the Squad" (nav only)
+- CTA: "Join the Founding Squad" (everywhere) or "Join Beta Access" / "Join the Squad"
 - No Hindi on website
-- Digital Closet feature not mentioned on website (pre-launch strategy)
-- Tone: warm, financially intelligent, culturally specific to Indian women
+- Full platform capabilities are showcased publicly: AI Closet Digitizer, Wardrobe Financial ROI, Tara AI Concierge, Style Circle, Private Closet Share, Aadhaar Secure QR, Photo Handover Checkpoints, and Google Cloud / Vertex AI architecture
+- Contact / grievance email: `hello@maahu.ai`
+- Legal entity in footer: `© 2026 Maahu AI Digital Private Limited · maahu.ai`
+- Tone: warm, financially intelligent, technically credible, culturally specific to Indian women
 
-## Revenue Model (for context)
-- 15% platform fee charged to borrower on top of lender's rental price
-- Full amount held in escrow (Razorpay Route)
-- Escrow releases to lender after exchange completes, Maahu keeps 15%
+## Revenue & Settlement Copy Rules
+- Keep public marketing copy general: *"transparent platform fee shown upfront before every booking"* (fees are backend-configurable)
+- Do **not** describe Maahu as operating a "regulated escrow account" — describe protected refundable deposits, automated undisputed refunds, and Razorpay payouts/settlements
 
 ---
 
-*Last updated: April 2026*
+*Last updated: November 2026*
