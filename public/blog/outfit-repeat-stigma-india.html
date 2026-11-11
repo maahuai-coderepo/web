@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Outfit Repeat Stigma Is Costing Indian Women ₹43,000 a Year. I Did the Maths. — Maahu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Outfit repeat stigma costs Indian women ₹43,000–₹1 lakh a year. Maahu calculates the real annual price of 'yeh toh tune pehle bhi pehna tha' — and how to stop paying it." />
+  <meta name="keywords" content="outfit repeat India, rewearing clothes India stigma, Indian women occasion wear cost" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Outfit Repeat Stigma Is Costing Indian Women ₹43,000 a Year. I Did the Maths." />
+  <meta property="og:description" content="The real annual price of 'yeh toh tune pehle bhi pehna tha' — calculated for the first time for Indian women." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://maahu.ai/blog/outfit-repeat-stigma-india" />
+  <meta property="og:image" content="https://maahu.ai/assets/outfit-repeat-hero.jpg" />
+  <link rel="canonical" href="https://maahu.ai/blog/outfit-repeat-stigma-india" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <style>
+    :root {
+      --cream:       #f7f0e6;
+      --cream-2:     #ede4d6;
+      --cream-3:     #e4d8c6;
+      --gold:        #b8933e;
+      --gold-light:  #d4ae6a;
+      --gold-pale:   #e8d5a8;
+      --gold-faint:  rgba(184,147,62,0.12);
+      --dark:        #1a140d;
+      --dark-2:      #241c12;
+      --dark-3:      #2e2418;
+      --text:        #f7f0e6;
+      --text-mid:    rgba(247,240,230,0.65);
+      --text-dim:    rgba(247,240,230,0.4);
+      --border:      rgba(184,147,62,0.2);
+      --border-2:    rgba(184,147,62,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index:200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 56px;
+      background: rgba(26,20,13,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(184,147,62,0.15);
+      transition: all 0.3s ease;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #f7f0e6;
+      text-decoration: none;
+    }
+    .nav-brand span { color: #b8933e; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(247,240,230,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: #b8933e;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: #b8933e; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #b8933e; }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.3em !important;
+      color: #1a140d !important;
+      background: #b8933e;
+      padding: 11px 24px !important;
+      transition: background 0.3s ease !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: #e8d5a8 !important; color: #1a140d !important; }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 6px;
+      background:none; border:none; z-index:210;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation; cursor:pointer;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: #f7f0e6;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.3s ease, width 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: #e8d5a8; }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: #e8d5a8; }
+
+    /* ── Mobile Drawer ── */
+    .mobile-drawer {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index:205;
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      background: rgba(14,11,8,0.97) !important;
+      backdrop-filter: blur(24px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity: 1; pointer-events: all; }
+    .mobile-drawer ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0; width: 100%;
+    }
+    .mobile-drawer ul li {
+      width: 100%; text-align: center;
+      border-bottom: 1px solid rgba(184,147,62,0.1);
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top: 1px solid rgba(184,147,62,0.1); }
+    .mobile-drawer.open ul li { transform: translateY(0); opacity: 1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay: 0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay: 0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay: 0.20s; }
+    .mobile-drawer.open ul li:nth-child(4) { transition-delay: 0.26s; }
+    .mobile-drawer ul li a {
+      display: block; padding: 22px 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 300;
+      letter-spacing: 0.06em;
+      color: rgba(247,240,230,0.7) !important;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .mobile-drawer ul li a:hover { color:var(--gold); }
+    .mobile-drawer ul li a.active {
+      color:var(--gold) !important;
+      background:rgba(184,147,62,0.08);
+      border-left:3px solid var(--gold);
+      padding-left:37px;
+    }
+    .mobile-drawer-cta {
+      margin-top: 40px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: #1a140d; background: #b8933e;
+      padding: 16px 52px; text-decoration: none;
+      display: inline-block;
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease 0.34s, opacity 0.4s ease 0.34s, background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform: translateY(0); opacity: 1; }
+    .mobile-drawer-cta:hover { background: #e8d5a8; }
+    .mobile-drawer-city {
+      position: absolute; bottom: 36px;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(184,147,62,0.35);
+      transform: translateY(10px); opacity: 0;
+      transition: transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform: translateY(0); opacity: 1; }
+
+    .breadcrumb {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .breadcrumb a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: rgba(245,237,224,0.3); margin: 0 10px; }
+
+    /* ── Article header ── */
+    .article-header {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 48px 56px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.2s forwards;
+    }
+
+    .article-series {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5.5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+
+    .article-byline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+
+    .author-name {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+    }
+
+    .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+
+    .article-meta {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(245,237,224,0.4);
+    }
+
+    /* ── Hero image ── */
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 48px;
+    }
+
+    .hero-placeholder {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--dark-mid);
+      border: 1px solid rgba(201,169,110,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-placeholder-text {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245,237,224,0.25);
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    /* ── Article body ── */
+    .article-body {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 48px 100px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(245, 237, 224, 0.82);
+      margin-bottom: 28px;
+      letter-spacing: 0.01em;
+    }
+
+    .article-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.5vw, 34px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      margin: 64px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold-light);
+      margin: 40px 0 16px;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 2px solid var(--gold);
+      padding: 4px 0 4px 32px;
+      margin: 48px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.8vw, 26px) !important;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5 !important;
+      color: var(--cream) !important;
+      margin: 0 !important;
+    }
+
+    /* Stat callout */
+    .stat-block {
+      background: var(--gold-faint);
+      border: 1px solid rgba(201, 169, 110, 0.18);
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+
+    .stat-block p {
+      font-size: 13px !important;
+      font-weight: 300;
+      line-height: 1.75 !important;
+      color: rgba(245, 237, 224, 0.65) !important;
+      font-style: italic;
+      margin: 0 !important;
+    }
+
+    .stat-block cite {
+      display: block;
+      font-size: 10px;
+      font-style: normal;
+      letter-spacing: 0.15em;
+      color: rgba(245,237,224,0.3);
+      margin-top: 12px;
+    }
+
+    /* Big stat */
+    .big-stat {
+      text-align: center;
+      padding: 48px 32px;
+      border: 1px solid rgba(201,169,110,0.15);
+      margin: 48px 0;
+    }
+
+    .big-stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 96px);
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .big-stat-label {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+      margin-bottom: 8px;
+    }
+
+    .big-stat-sub {
+      font-size: 13px;
+      font-weight: 300;
+      color: rgba(245,237,224,0.4);
+      font-style: italic;
+    }
+
+    /* Stigma cost table */
+    .data-table-wrap {
+      margin: 40px 0;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+    }
+
+    tbody td {
+      padding: 14px 20px;
+      font-weight: 300;
+      color: rgba(245,237,224,0.75);
+      border-bottom: 1px solid rgba(245,237,224,0.05);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover td { background: var(--cream-faint); }
+
+    tbody tr.total-row td {
+      border-top: 1px solid rgba(201,169,110,0.3);
+      color: var(--cream);
+      font-weight: 400;
+    }
+
+    td.cost-high { color: #e8896e; font-weight: 400; }
+    td.cost-total { color: var(--gold); font-weight: 500; font-size: 14px; }
+    td.worn-once { color: rgba(245,237,224,0.4); font-style: italic; }
+
+    /* Three tips */
+    .tips-list {
+      margin: 32px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .tip-item {
+      background: var(--dark-mid);
+      border: 1px solid rgba(201,169,110,0.1);
+      padding: 24px 28px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+
+    .tip-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.5;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .tip-content h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .tip-content p {
+      font-size: 14px !important;
+      line-height: 1.7 !important;
+      color: var(--cream-dim) !important;
+      margin: 0 !important;
+    }
+
+    /* Internal link */
+    .internal-link {
+      border: 1px solid rgba(201, 169, 110, 0.15);
+      padding: 20px 24px;
+      margin: 32px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .internal-link-label {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .internal-link a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .internal-link a:hover { color: var(--gold); }
+
+    /* Section divider */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 64px 0 48px;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,169,110,0.15);
+    }
+
+    .section-divider-icon {
+      font-size: 14px;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* Inline CTA */
+    .inline-cta {
+      background: var(--gold-faint);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      padding: 28px 32px;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .inline-cta p {
+      font-size: 14px !important;
+      color: var(--cream-dim) !important;
+      margin: 0 !important;
+      font-style: italic;
+    }
+
+    .inline-cta a {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(201,169,110,0.35);
+      padding: 10px 20px;
+      white-space: nowrap;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .inline-cta a:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* FAQs */
+    .faq-section {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+    }
+
+    .faq-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,169,110,0.2);
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(245,237,224,0.07);
+      padding: 28px 0;
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid rgba(245,237,224,0.07); }
+
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--cream-dim);
+    }
+
+    /* Author bio */
+    .author-bio {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto 80px;
+      padding: 0 48px;
+    }
+
+    .author-bio-inner {
+      border-top: 1px solid rgba(201,169,110,0.15);
+      padding-top: 40px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--dark-mid);
+      border: 1px solid rgba(201,169,110,0.2);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .author-bio-text h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .author-bio-text p {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--cream-dim);
+    }
+
+    /* Footer */
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .article-title { font-size:clamp(28px,8vw,36px); }
+      .article-body p { font-size:15px; line-height:1.85; }
+      .nav-hamburger { display:flex; }
+      .nav-links { display:none; }
+      nav { padding: 20px 24px; }
+      .article-header,
+      .hero-image,
+      .article-body,
+      .faq-section,
+      .author-bio { padding-left: 24px; padding-right: 24px; }
+      .article-title { font-size: 34px; }
+      .article-body p { font-size: 15px; }
+      .pull-quote { padding-left: 20px; }
+      .inline-cta { flex-direction: column; text-align: center; }
+      .internal-link { flex-direction: column; gap: 8px; }
+    }
+
+    footer {
+      background:var(--dark-2);
+      border-top:2px solid rgba(184,147,62,0.25);
+      padding:64px 56px 40px;
+    }
+    .footer-top {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:56px; padding-bottom:48px;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      margin-bottom:36px;
+    }
+    .footer-brand-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px; font-weight:300;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); margin-bottom:14px;
+    }
+    .footer-brand-name span { color:var(--gold); }
+    .footer-tagline {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0;
+      line-height:1.7; max-width:220px;
+      letter-spacing:0.04em;
+    }
+    .footer-col-title {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+    }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0; text-decoration:none;
+      transition:color 0.3s; letter-spacing:0.04em;
+    }
+    .footer-links a:hover { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    .footer-bottom {
+      display:flex; justify-content:center; align-items:center; gap:32px;
+    }
+    .footer-copy {
+      font-size:10px; font-weight:300;
+      color:#a0a0a0; letter-spacing:0.12em;
+    }
+    .footer-city {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.55);
+    }
+    .footer-insta {
+      display:inline-flex; align-items:center;
+      font-size:11px; font-weight:300;
+      letter-spacing:0.12em;
+      color:#D0D0D0;
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-insta:hover { color:var(--gold); }
+</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Outfit Repeat Stigma Is Costing Indian Women ₹43,000 a Year. I Did the Maths.",
+    "author": { "@type": "Person", "name": "Ritika" },
+    "publisher": { "@type": "Organization", "name": "Maahu" },
+    "datePublished": "2026-03-20",
+    "description": "Outfit repeat stigma costs Indian women ₹43,000–₹1 lakh a year. The real annual price of 'yeh toh tune pehle bhi pehna tha' — calculated for the first time.",
+    "url": "https://maahu.ai/blog/outfit-repeat-stigma-india",
+    "image": "https://maahu.ai/assets/outfit-repeat-hero.jpg"
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is it okay to repeat outfits to Indian weddings?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — and the maths strongly supports it. An outfit worn once has a cost per wear equal to its full purchase price. The same outfit worn three times costs one-third per wear. Repeat across different social circles, restyle with different jewellery, and save one thoughtful new purchase per wedding season."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I avoid outfit repeat at Indian functions without buying new clothes every time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three approaches work: change one significant element (jewellery, dupatta, blouse), map your social circles and repeat freely across circles that don't overlap, or borrow a statement piece that transforms what you already own."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much do Indian women spend on outfit repeat avoidance per year?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Based on Maahu's calculation, the average urban Indian woman spends between ₹43,000 and ₹1,00,000 per year specifically to avoid repeating outfits — across weddings, office occasions, sangeet and mehendi functions, and birthday dinners. The majority of these purchases are worn once."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why do Indian women feel more pressure to wear new outfits than women in other countries?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Three factors: unusually dense occasion calendars (8–12 photographed events per year), significantly overlapping social circles where the same group attends multiple events, and India's instant documentation culture — WhatsApp sharing within hours of every event makes repetition permanent and searchable."
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/brand-refresh.css" />
+  <!-- Meta Pixel Base Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1040673992145213');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1040673992145213&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Base Code -->
+</head>
+<body>
+
+    <nav>
+    <a href="/" class="nav-brand"><img src="/assets/maahu-logo-nav-light.png" alt="Maahu" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/join" class="mobile-drawer-cta">Join the Founding Squad</a>
+    <div class="mobile-drawer-city">Mumbai · Est. 2026</div>
+  </div>
+
+  <article>
+
+    <header class="article-header">
+      <p class="article-series">Wedding Season</p>
+      <h1 class="article-title">Outfit Repeat Stigma Is Costing Indian Women ₹43,000 a Year. I Did the Maths.</h1>
+      <div class="article-byline">
+        <span class="author-name">Ritika</span>
+        <span class="dot"></span>
+        <span class="article-meta">March 2026</span>
+        <span class="dot"></span>
+        <span class="article-meta">9 min read</span>
+      </div>
+    </header>
+
+    <!-- Hero image — replace placeholder when image is ready -->
+    <div class="hero-image">
+      <img src="/assets/outfit-repeat-hero.jpg" alt="Outfit repeat stigma India" style="width:100%;display:block;" />
+    </div>
+
+    <div class="article-body">
+
+      <p>She said it at a cousin's wedding in Defence Colony, standing near the dessert table with the confidence of someone delivering a verdict. <em>'Yeh toh tune pehle bhi pehna tha.'</em> You wore this before.</p>
+
+      <p>That comment — five words, zero malice intended, maximum financial damage delivered — sent me to DLF Promenade the following week. I spent ₹8,500 on an outfit I wore once and have not touched since. The original anarkali she commented on? I've worn it eleven times. Its cost per wear is ₹590. The replacement I bought out of embarrassment? ₹8,500 per wear.</p>
+
+      <p>I have been calculating what outfit repeat stigma actually costs Indian women. Across weddings, office parties, festive occasions, birthday dinners, and destination functions. The number, when you add it up honestly, is somewhere between ₹43,000 and ₹1,00,000 per year for an average urban Indian woman. Not on clothes she loves. Specifically on clothes she buys to avoid being seen in the same thing twice.</p>
+
+      <p>Nobody has calculated this number for Indian women before. This blog does.</p>
+
+      <div class="big-stat">
+        <div class="big-stat-number">₹43,000</div>
+        <div class="big-stat-label">The annual fear tax — outfit repeat avoidance spend</div>
+        <div class="big-stat-sub">Average urban Indian woman · Most of it worn once · None of it tracked</div>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+      <h2>What Is Outfit Repeat Stigma — and Why India Has a Uniquely Expensive Version of It</h2>
+
+      <p>Outfit repeat stigma is the social pressure to wear a new or different outfit each time you are photographed or seen at a social occasion. It exists everywhere — but India has a version of it that is more expensive than almost anywhere else in the world, for three specific reasons.</p>
+
+      <p>First, the occasion density. The average Indian wedding now has 4.2 functions — mehendi, sangeet, wedding, reception — each requiring a different outfit, each photographed extensively, all shared on the same family WhatsApp group within hours. A single wedding season can mean 8 to 15 separate occasion dressing moments across three or four events.</p>
+
+      <p>Second, the social circle overlap. Indian social life runs in tight, overlapping circles — family, college friends, work colleagues, building society, kitty party group. The same 30 to 50 people see you at multiple occasions through the year. In an urban Indian context, all of them are photographing everything.</p>
+
+      <p>Third, the documentation culture. Every Indian occasion is photographed, videographed, and shared within hours. Instagram posts, WhatsApp forwards, family albums on Google Photos. The outfit is on record within the hour. It is searchable, scrollable, and comparable across events.</p>
+
+      <div class="stat-block">
+        <p>Indian weddings now average 4.2 functions per event. 63% of Indian brides changed into a different outfit for each wedding function in 2024. The Indian wedding apparel market drives ₹10,000 crore in annual spending — with women's wear accounting for 70–75% of the total.</p>
+        <cite>WedMeGood / Wright Research, 2024 · WeddingWire India, 2024 · Jefferies India, 2024</cite>
+      </div>
+
+      <p>The outfit repeat stigma is not irrational. The social pressure is real. The photographs are permanent. What is irrational is the financial response to it. Buying ₹8,500 worth of 'never again' to avoid a five-word comment is not a fashion decision. It is a fear decision. And fear decisions have a running annual cost that most Indian women have never added up.</p>
+
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+      <h2>The Real Annual Cost of Outfit Repeat Stigma — Calculated for the First Time</h2>
+
+      <p>I built this table by mapping the occasions where outfit repeat pressure is highest for an urban Indian woman, the typical spend per occasion driven by that pressure, and the honest number of times that outfit gets worn after the event.</p>
+
+      <div class="data-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Occasion</th>
+              <th>Events/Year</th>
+              <th>Avg Spend</th>
+              <th>Times Worn</th>
+              <th>Annual Cost</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Wedding guest outfit</td>
+              <td>3–4</td>
+              <td>₹6,000–12,000</td>
+              <td class="worn-once">1–2 times</td>
+              <td class="cost-high">₹18,000–48,000</td>
+            </tr>
+            <tr>
+              <td>Sangeet / Mehendi</td>
+              <td>2–3</td>
+              <td>₹3,000–6,000</td>
+              <td class="worn-once">1 time</td>
+              <td class="cost-high">₹6,000–18,000</td>
+            </tr>
+            <tr>
+              <td>Office festive / Diwali party</td>
+              <td>2</td>
+              <td>₹2,500–5,000</td>
+              <td class="worn-once">1 time</td>
+              <td class="cost-high">₹5,000–10,000</td>
+            </tr>
+            <tr>
+              <td>Birthday dinners / NYE</td>
+              <td>3–4</td>
+              <td>₹2,000–4,000</td>
+              <td class="worn-once">1 time</td>
+              <td class="cost-high">₹6,000–16,000</td>
+            </tr>
+            <tr>
+              <td>Destination functions</td>
+              <td>1</td>
+              <td>₹8,000–8,000</td>
+              <td class="worn-once">1–2 times</td>
+              <td class="cost-high">₹8,000</td>
+            </tr>
+            <tr class="total-row">
+              <td><strong>Total annual fear tax</strong></td>
+              <td>—</td>
+              <td>—</td>
+              <td>—</td>
+              <td class="cost-total">₹43,000–₹1,00,000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Read that bottom line again. ₹43,000 to ₹1,00,000 per year. On outfits worn once. That is not a wardrobe. That is a fear tax — paid annually, invisibly, without anyone ever naming it as what it is.</p>
+
+      <div class="pull-quote">
+        <p>"At ₹43,000 per year invested at 7% FD rate — that is ₹3,010 in interest every year. Over ten years of working life it is ₹6 lakh in opportunity cost. Before compounding."</p>
+      </div>
+
+      <div class="internal-link">
+        <span class="internal-link-label">See also</span>
+        <a href="/blog/closet-audit-mumbai">Blog 01 — I Audited My Mumbai Closet. It's Worth ₹3 Lakhs →</a>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+      <h2>Where Outfit Repeat Stigma Comes From — and Why It Hits Indian Women Hardest</h2>
+
+      <p>The stigma is not new and it is not Indian in origin. It has been built and reinforced over decades by a specific set of cultural forces — and Indian women are caught at the intersection of all of them simultaneously.</p>
+
+      <p>Television and film built the original template. Decades of Bollywood heroines in a new outfit every scene. TV characters whose wardrobes refresh with every episode. The women we were shown as aspirational never repeated. We absorbed that standard before we had a single rupee of our own to spend.</p>
+
+      <p>Social media extended the documentation to real life. What used to apply only to celebrities now applies to every woman with an Instagram account. The pressure to post a new look converted the celebrity standard into a personal expectation.</p>
+
+      <div class="stat-block">
+        <p>49% of people globally report feeling self-conscious about repeating outfits at work or social occasions. For Indian women specifically, the combination of dense occasion calendars, overlapping social circles, and instant WhatsApp documentation creates a repeat anxiety that is more financially damaging than in most other cultures.</p>
+        <cite>Business of Fashion / Good On You consumer survey, 2023</cite>
+      </div>
+
+      <p>The most honest thing I can say about this: the stigma is a manufactured problem with a real financial cost. Our mothers rewore sarees to every occasion without a second thought — because there were no WhatsApp groups comparing photos, and because the culture of their wardrobes was built around quality pieces worn repeatedly, not disposable volume bought in panic.</p>
+
+      <div class="inline-cta">
+        <p>Maahu is building a community where your existing wardrobe does the work — shared, borrowed, reworn without judgment.</p>
+        <a href="/join">Join the waitlist →</a>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+      <h2>How to Rewear Without Repeating — Three Tools That Actually Work</h2>
+
+      <p>The solution to outfit repeat stigma is not 'stop caring what people think.' That is not practical and it ignores the genuine social reality of Indian occasions. The solution is to rewear strategically — in ways that make the outfit feel new even when the piece is not.</p>
+
+      <div class="tips-list">
+        <div class="tip-item">
+          <div class="tip-number">01</div>
+          <div class="tip-content">
+            <h4>Change one significant element</h4>
+            <p>The same anarkali worn with different jewellery, a different dupatta, or a different blouse reads as a new outfit to 80% of the room. The piece is the same. The look is different. The cost per wear drops with every time you do this.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-number">02</div>
+          <div class="tip-content">
+            <h4>Respect the circle boundary</h4>
+            <p>The outfit you wore to your college friend's wedding can be reworn to your office colleague's wedding without anyone overlapping. Map your circles honestly and repeat across them freely. Indian social circles feel tight but they are not completely the same group.</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <div class="tip-number">03</div>
+          <div class="tip-content">
+            <h4>Borrow the statement piece, own the base</h4>
+            <p>The outfit that gets photographed is usually the statement — the embellished jacket, the bold dupatta, the unusual colour. Own the base. Borrow the element that changes the entire look. It costs you nothing and the photograph looks completely different.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="internal-link">
+        <span class="internal-link-label">See also</span>
+        <a href="/blog/indian-women-trust-wardrobe-sharing">Blog 05 — Why Indian Women Trust Each Other With Their Wardrobes →</a>
+      </div>
+
+      <div class="section-divider"><span class="section-divider-icon">◆</span></div>
+
+      <h2>The Real Question Is Not Whether to Repeat — It's Why We Were Taught Not To</h2>
+
+      <p>Here is the thing about outfit repeat stigma that nobody says plainly: it is not a fashion problem. It is a financial extraction mechanism that was built into Indian women's social culture without anyone naming it as such.</p>
+
+      <p>The fast fashion industry profits every time a woman buys something to avoid a repeat. The wedding industry profits from the norm that each function requires a new outfit. Social media profits from the content that new outfits generate. Every rupee of that ₹43,000 annual fear tax flows somewhere — just not to the woman spending it.</p>
+
+      <p>Rewearing is not a compromise. It is not 'making do.' It is the financially intelligent, environmentally honest, and — if we're being direct — more stylish approach to dressing. The most elegant women I have ever met own fewer things and wear them more. They are not repeating because they can't afford new. They are repeating because they have the confidence that comes from knowing exactly what works on them.</p>
+
+      <div class="stat-block">
+        <p>The Indian wedding industry is valued at $130 billion annually — India's fourth-largest industry. Apparel alone drives ₹10,000 crore in wedding-related spending each season. The pressure to buy new for every function is not organic social culture. It is an economy that runs on the fear of repetition.</p>
+        <cite>Jefferies India, 2024 · Kotak MF / CAIT industry analysis, 2024</cite>
+      </div>
+
+    </div>
+
+    <!-- FAQs -->
+    <section class="faq-section">
+      <div class="faq-label">Frequently Asked</div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Is it okay to repeat outfits to Indian weddings?</h3>
+        <p class="faq-a">Yes — and the maths strongly supports it. An outfit worn once to a wedding has a cost per wear equal to its full purchase price. The same outfit worn three times across three different events has a cost per wear of one-third that amount. The most practical approach: repeat across different social circles, restyle the same piece with different jewellery and dupatta, and save the genuinely new purchase for the single function where the overlap of all your circles is highest. One thoughtful new outfit per wedding season is a financial decision. Seven panic-bought outfits per season is a fear tax.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How do I avoid outfit repeat at Indian functions without buying new clothes every time?</h3>
+        <p class="faq-a">Three approaches work consistently. First, change one significant element — the same kurta or saree with completely different jewellery, a different blouse, or a different drape reads as a new look to most of the room. Second, map your social circles honestly and repeat freely across circles that don't overlap — the outfit you wore to your best friend's wedding in Mumbai is completely fresh to your cousin's wedding in Delhi. Third, borrow a statement piece — an embellished jacket, a bold stole, a designer bag — that transforms what you already own.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How much do Indian women spend on outfit repeat avoidance per year?</h3>
+        <p class="faq-a">Based on Maahu's calculation across typical Indian occasion calendars, the average urban Indian woman spends between ₹43,000 and ₹1,00,000 per year specifically to avoid repeating outfits. This includes wedding guest outfits, office festive occasions, sangeet and mehendi functions, birthday dinners and New Year events. The majority of these purchases are worn once — meaning the cost per wear on the stigma-avoidance wardrobe is catastrophically high. This number has not been previously calculated for Indian women.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Why do Indian women feel more pressure to wear new outfits than women in other countries?</h3>
+        <p class="faq-a">Three factors make India's outfit repeat pressure more financially intense than in most cultures. First, the Indian occasion calendar is unusually dense — a typical urban woman attends 8 to 12 photographed social events per year, each requiring a 'fresh' look. Second, Indian social circles overlap significantly — the same group of family, college friends, and colleagues often attends multiple events together. Third, the instant documentation culture — WhatsApp photo sharing within hours of every event — makes repetition permanent and searchable in a way that amplifies the stigma.</p>
+      </div>
+
+    </section>
+
+    <!-- Author bio -->
+    <div class="author-bio">
+      <div class="author-bio-inner">
+        <div class="author-avatar">R</div>
+        <div class="author-bio-text">
+          <h4>Ritika</h4>
+          <p>Founder of Maahu — a community at the intersection of Indian wardrobes and personal finance. She writes about the real cost of what Indian women own, why so much of it sits unworn, and what changes when women start treating their wardrobes as assets rather than anxieties. She once spent ₹8,500 on an outfit because someone said five words near a dessert table. This blog is the maths she did after.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+    <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Maahu<span>.</span></div>
+        <div class="footer-tagline">India's first community wardrobe. Wear more. Own less. Trust more.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/join">Join the Founding Squad</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Journal</div>
+        <ul class="footer-links">
+          <li><a href="/blog">Closet Finance</a></li>
+          <li><a href="/blog/closet-audit-mumbai">The Mumbai Audit</a></li>
+          <li><a href="/blog/outfit-repeat-stigma-india">The Fear Tax</a></li>
+          <li><a href="/blog/bali-packing-list-indian-women">Bali Packing Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/join">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Maahu AI Digital Private Limited · maahu.ai 🧡</div>
+      <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="footer-insta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@maahu.ai
+      </a>
+      <div class="footer-city">Launching Mumbai · 2026</div>
+    </div>
+  </footer>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      if (!btn || !drawer) return;
+      function openMenu() {
+        drawer.style.display = 'flex';
+        requestAnimationFrame(function() {
+          drawer.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      function closeMenu() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+        setTimeout(function(){ drawer.style.display='none'; }, 420);
+      }
+      btn.addEventListener('click', function() {
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeMenu();
+      });
+      drawer.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

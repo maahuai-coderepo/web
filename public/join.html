@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Join the Maahu Founding Squad — Early Access in Mumbai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get early access to Maahu, Mumbai's new community wardrobe. Sign up to rent or lend designer occasion wear before we launch." />
+  <link rel="canonical" href="https://maahu.ai/join" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <style>
+    :root {
+      --cream:       #f7f0e6;
+      --cream-2:     #ede4d6;
+      --cream-3:     #e4d8c6;
+      --gold:        #b8933e;
+      --gold-light:  #d4ae6a;
+      --gold-pale:   #e8d5a8;
+      --gold-faint:  rgba(184,147,62,0.12);
+      --dark:        #1a140d;
+      --dark-2:      #241c12;
+      --dark-3:      #2e2418;
+      --text:        #f7f0e6;
+      --text-mid:    rgba(247,240,230,0.65);
+      --text-dim:    rgba(247,240,230,0.4);
+      --border:      rgba(184,147,62,0.2);
+      --border-2:    rgba(184,147,62,0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--dark); color:var(--cream);
+      font-family:'Jost',sans-serif; font-weight:300;
+      overflow-x:hidden; padding-top:80px; min-height:100vh;
+    }
+    body::after {
+      content:''; position:fixed; inset:0; opacity:0.025;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:200px; pointer-events:none; z-index:1; touch-action:none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px 56px;
+      background:rgba(26,20,13,0.97);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      transition:all 0.3s ease;
+    }
+    .nav-brand {
+      font-family:'Cormorant Garamond',serif;
+      font-size:21px; font-weight:400;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); text-decoration:none;
+    }
+    .nav-brand span { color:var(--gold); }
+    .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+    .nav-links a {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.28em; text-transform:uppercase;
+      color:rgba(247,240,230,0.5); text-decoration:none;
+      transition:color 0.3s;
+      position:relative; padding-bottom:2px;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-2px; left:0;
+      width:0; height:1px; background:var(--gold);
+      transition:width 0.3s ease;
+    }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-links a.active { color:var(--gold); }
+    .nav-links a.active::after { width:100%; }
+    .nav-cta {
+      font-size:10px !important; font-weight:500 !important;
+      letter-spacing:0.3em !important;
+      color:var(--cream) !important;
+      background:var(--gold);
+      padding:11px 24px !important;
+      transition:background 0.3s ease !important;
+    }
+    .nav-cta::after { display:none !important; }
+    .nav-cta:hover { background:var(--dark) !important; color:var(--cream) !important; }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display:none;
+      flex-direction:column; justify-content:center;
+      gap:5px; cursor:pointer; padding:6px;
+      background:none; border:none; z-index:210;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation; cursor:pointer;
+    }
+    .nav-hamburger span {
+      display:block; width:22px; height:1.5px;
+      background:var(--cream);
+      transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                 opacity 0.3s ease, width 0.3s ease;
+      transform-origin:center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); background:var(--gold-pale); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; width:0; }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); background:var(--gold-pale); }
+
+    /* ── MOBILE DRAWER ── */
+    .mobile-drawer {
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      z-index:205;
+      flex-direction:column;
+      justify-content:center; align-items:center;
+      background:rgba(26,20,13,0.97) !important;
+      backdrop-filter:blur(24px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity:1; pointer-events:all; }
+    .mobile-drawer ul {
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column;
+      align-items:center; gap:0; width:100%;
+    }
+    .mobile-drawer ul li {
+      width:100%; text-align:center;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top:1px solid rgba(184,147,62,0.1); }
+    .mobile-drawer.open ul li { transform:translateY(0); opacity:1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay:0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay:0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay:0.20s; }
+    .mobile-drawer.open ul li:nth-child(4) { transition-delay:0.26s; }
+    .mobile-drawer ul li a {
+      display:block; padding:22px 40px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:300;
+      letter-spacing:0.06em;
+      color:rgba(247,240,230,0.7) !important;
+      text-decoration:none;
+      transition:color 0.2s;
+    }
+    .mobile-drawer ul li a:hover { color:var(--gold); }
+    .mobile-drawer ul li a.active {
+      color:var(--gold) !important;
+      background:rgba(184,147,62,0.08);
+      border-left:3px solid var(--gold);
+      padding-left:37px;
+    }
+    .mobile-drawer-cta {
+      margin-top:40px;
+      font-size:11px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--cream); background:var(--gold);
+      padding:16px 52px; text-decoration:none;
+      display:inline-block;
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease 0.34s,
+                 opacity 0.4s ease 0.34s,
+                 background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform:translateY(0); opacity:1; }
+    .mobile-drawer-cta:hover { background:var(--gold-pale); }
+    .mobile-drawer-city {
+      position:absolute; bottom:36px;
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.35);
+      transform:translateY(10px); opacity:0;
+      transition:transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform:translateY(0); opacity:1; }
+
+    /* LAYOUT */
+    .join-layout {
+      display:grid; grid-template-columns:1fr 1fr;
+      min-height:calc(100vh - 80px);
+    }
+
+    /* LEFT */
+    .join-left {
+      background:var(--dark);
+      padding:72px 64px;
+      display:flex; flex-direction:column; justify-content:center;
+      position:relative; overflow:hidden;
+    }
+    .join-left::before {
+      content:''; position:absolute;
+      width:400px; height:400px; border-radius:50%;
+      background:radial-gradient(circle, rgba(184,147,62,0.09) 0%, transparent 70%);
+      bottom:-100px; right:-80px;
+    }
+    .left-img {
+      position:absolute; inset:0;
+      background-image:url('/assets/join-hero.jpg');
+      background-size:cover; background-position:center;
+      opacity:0.12; z-index:0;
+    }
+    .left-content { position:relative; z-index:1; }
+    .left-eyebrow {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.5em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:22px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .left-eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+    .left-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(38px,4.5vw,58px);
+      font-weight:300; line-height:1.1;
+      color:var(--cream); margin-bottom:22px;
+    }
+    .left-title em { font-style:italic; color:var(--gold); }
+    .left-body {
+      font-size:14px; font-weight:300;
+      line-height:1.85; color:rgba(247,240,230,0.5);
+      margin-bottom:44px; max-width:380px;
+    }
+    .perks { display:flex; flex-direction:column; gap:14px; }
+    .perk { display:flex; align-items:flex-start; gap:12px; }
+    .perk-dot {
+      width:5px; height:5px; border-radius:50%;
+      background:var(--gold); flex-shrink:0; margin-top:7px;
+    }
+    .perk-text {
+      font-size:13px; font-weight:300;
+      color:rgba(247,240,230,0.6); line-height:1.6;
+    }
+    .left-divider {
+      width:40px; height:1px; background:rgba(184,147,62,0.3);
+      margin:36px 0;
+    }
+    .left-quote {
+      font-family:'Cormorant Garamond',serif;
+      font-size:16px; font-style:italic; font-weight:400;
+      color:rgba(247,240,230,0.35); line-height:1.6;
+      max-width:340px;
+    }
+
+    /* RIGHT */
+    .join-right {
+      padding:72px 64px;
+      display:flex; flex-direction:column; justify-content:center;
+      background:var(--dark-2);
+    }
+    .form-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:400;
+      color:var(--cream); margin-bottom:6px;
+    }
+    .form-sub {
+      font-size:13px; font-weight:300;
+      color:var(--text-dim); margin-bottom:36px; letter-spacing:0.03em;
+    }
+    .form-group { margin-bottom:18px; }
+    .form-label {
+      display:block; font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(247,240,230,0.65); margin-bottom:9px;
+    }
+    .form-input, .form-select {
+      width:100%; padding:13px 16px;
+      background:var(--dark-2); border:1px solid var(--border);
+      font-family:'Jost',sans-serif; font-size:14px; font-weight:300;
+      color:var(--cream); outline:none; transition:border-color 0.3s;
+      appearance:none;
+    }
+    .form-input:focus, .form-select:focus {
+      border-color:var(--gold); background:var(--dark);
+    }
+    .form-input::placeholder { color:var(--text-dim); }
+    .radio-group {
+      display:grid; grid-template-columns:1fr 1fr; gap:8px;
+    }
+    .radio-label {
+      display:flex; align-items:center; gap:9px;
+      padding:12px 14px;
+      background:var(--dark-2); border:1px solid var(--border);
+      cursor:pointer; transition:all 0.3s;
+      font-size:12px; font-weight:300;
+      color:rgba(247,240,230,0.65); letter-spacing:0.04em;
+      user-select:none;
+    }
+    .radio-label:hover { border-color:var(--gold); color:var(--gold); }
+    .radio-label.sel { border-color:var(--gold); background:var(--gold-faint); color:var(--gold); }
+    .radio-label input { display:none; }
+    .radio-dot {
+      width:8px; height:8px; border-radius:50%;
+      border:1px solid currentColor; flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .radio-dot::after {
+      content:''; width:4px; height:4px; border-radius:50%;
+      background:var(--gold); display:none;
+    }
+    .radio-label.sel .radio-dot::after { display:block; }
+    .form-submit {
+      width:100%; padding:17px;
+      background:var(--dark); color:var(--cream);
+      border:none; font-family:'Jost',sans-serif;
+      font-size:10px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      cursor:pointer; transition:background 0.3s; margin-top:6px;
+    }
+    .form-submit:hover { background:var(--gold); }
+    .form-note {
+      font-size:10px; font-weight:300;
+      color:var(--text-dim); text-align:center;
+      margin-top:14px; letter-spacing:0.04em;
+    }
+
+    /* SUCCESS */
+    .form-success {
+      display:none; text-align:center; padding:40px 0;
+    }
+    .success-icon { font-size:48px; margin-bottom:20px; display:block; }
+    .success-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:400;
+      color:var(--cream); margin-bottom:12px;
+    }
+    .success-body {
+      font-size:14px; font-weight:300;
+      color:rgba(247,240,230,0.65); line-height:1.75; margin-bottom:28px;
+    }
+    .btn-dark {
+      font-size:10px; font-weight:500;
+      letter-spacing:0.35em; text-transform:uppercase;
+      color:var(--cream); background:var(--dark);
+      padding:14px 32px; border:none; cursor:pointer;
+      text-decoration:none; display:inline-block;
+      transition:background 0.3s;
+    }
+    .btn-dark:hover { background:var(--gold); }
+
+
+    /* ── INSTAGRAM ── */
+    .join-insta {
+      display:inline-flex; align-items:center;
+      font-size:12px; font-weight:300;
+      letter-spacing:0.08em;
+      color:rgba(247,240,230,0.42);
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .join-insta:hover { color:var(--gold); }
+    .join-insta svg { opacity:0.6; transition:opacity 0.3s; }
+    .join-insta:hover svg { opacity:1; }
+
+    @media (max-width:900px) {
+      nav { padding:18px 24px; }
+      .nav-hamburger { display:flex; }
+      .nav-links { display:none; }
+      .join-layout { grid-template-columns:1fr; }
+      .join-left { padding:60px 24px; order:2; }
+      .join-right { padding:48px 24px; order:1; }
+      .left-img { opacity:0.08; }
+      .left-title { font-size:clamp(32px,9vw,48px); }
+      .form-submit { font-size:11px; padding:16px; min-height:52px; }
+      .radio-group { grid-template-columns:1fr; }
+    }
+
+    footer {
+      background:var(--dark-2);
+      border-top:2px solid rgba(184,147,62,0.25);
+      padding:64px 56px 40px;
+    }
+    .footer-top {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:56px; padding-bottom:48px;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      margin-bottom:36px;
+    }
+    .footer-brand-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px; font-weight:300;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); margin-bottom:14px;
+    }
+    .footer-brand-name span { color:var(--gold); }
+    .footer-tagline {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0;
+      line-height:1.7; max-width:220px;
+      letter-spacing:0.04em;
+    }
+    .footer-col-title {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+    }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0; text-decoration:none;
+      transition:color 0.3s; letter-spacing:0.04em;
+    }
+    .footer-links a:hover { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    .footer-bottom {
+      display:flex; justify-content:center; align-items:center; gap:32px;
+    }
+    .footer-copy {
+      font-size:10px; font-weight:300;
+      color:#a0a0a0; letter-spacing:0.12em;
+    }
+    .footer-city {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.55);
+    }
+    .footer-insta {
+      display:inline-flex; align-items:center;
+      font-size:11px; font-weight:300;
+      letter-spacing:0.12em;
+      color:#D0D0D0;
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-insta:hover { color:var(--gold);
+      .footer-top { grid-template-columns:1fr; gap:24px; }
+      footer { padding:48px 24px 32px; } }</style>
+  <link rel="stylesheet" href="/brand-refresh.css" />
+  <!-- Meta Pixel Base Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1040673992145213');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1040673992145213&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Base Code -->
+</head>
+<body>
+
+    <nav>
+    <a href="/" class="nav-brand"><img src="/assets/maahu-logo-nav-light.png" alt="Maahu" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/join" class="mobile-drawer-cta">Join the Founding Squad</a>
+    <div class="mobile-drawer-city">Mumbai · Est. 2026</div>
+  </div>
+
+  <div class="join-layout">
+
+    <!-- LEFT -->
+    <div class="join-left">
+      <div class="left-img"></div>
+      <div class="left-content">
+        <div class="left-eyebrow">Founding Squad · Mumbai</div>
+        <h1 class="left-title">Your Closet Has<br>a <em>Number.</em><br>It's Time to<br>Find It.</h1>
+        <p class="left-body">Maahu is launching in Mumbai in 2026. The founding squad gets early access, founding member status, and the chance to shape how this community works from day one.</p>
+        <div class="perks">
+          <div class="perk">
+            <div class="perk-dot"></div>
+            <div class="perk-text">First access when Maahu launches in Mumbai</div>
+          </div>
+          <div class="perk">
+            <div class="perk-dot"></div>
+            <div class="perk-text">Founding member status — your profile marked as an original</div>
+          </div>
+          <div class="perk">
+            <div class="perk-dot"></div>
+            <div class="perk-text">Closet Finance newsletter — real numbers from real wardrobes</div>
+          </div>
+          <div class="perk">
+            <div class="perk-dot"></div>
+            <div class="perk-text">Input on features before anyone else sees them</div>
+          </div>
+          <div class="perk">
+            <div class="perk-dot"></div>
+            <div class="perk-text">Zero spam. One update when we launch. That's it.</div>
+          </div>
+        </div>
+        <div class="left-divider"></div>
+        <div class="left-quote">"100 million Indian women already trust each other with money. Maahu is building the community where they can trust each other with everything else."</div>
+      <div class="left-divider"></div>
+    <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="join-insta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:7px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Follow us on Instagram
+    </a>
+    </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="join-right">
+      <div id="form-wrap">
+        <h2 class="form-title">Join the Founding Squad</h2>
+        <p class="form-sub">Takes 60 seconds. No spam. Ever.</p>
+
+        <form id="join-form" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" id="f-name" class="form-input" placeholder="First name is fine" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" id="f-email" class="form-input" placeholder="you@email.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Your Mumbai Neighbourhood</label>
+            <select id="f-neighbourhood" class="form-select">
+              <option value="" disabled selected>Select your area</option>
+              <option>Bandra</option>
+              <option>Juhu</option>
+              <option>Andheri</option>
+              <option>Powai</option>
+              <option>Worli / Lower Parel</option>
+              <option>Colaba / Fort</option>
+              <option>Khar / Santacruz</option>
+              <option>Versova / Lokhandwala</option>
+              <option>Other Mumbai</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">I want to</label>
+            <div class="radio-group">
+              <label class="radio-label" onclick="pickRadio(this)">
+                <input type="radio" name="intent" value="borrow" />
+                <span class="radio-dot"></span>Borrow pieces
+              </label>
+              <label class="radio-label" onclick="pickRadio(this)">
+                <input type="radio" name="intent" value="lend" />
+                <span class="radio-dot"></span>Lend my wardrobe
+              </label>
+              <label class="radio-label" onclick="pickRadio(this)">
+                <input type="radio" name="intent" value="both" />
+                <span class="radio-dot"></span>Both
+              </label>
+              <label class="radio-label" onclick="pickRadio(this)">
+                <input type="radio" name="intent" value="curious" />
+                <span class="radio-dot"></span>Just curious
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="form-submit">Join the Founding Squad →</button>
+          <div class="form-note">No spam. No selling your data. One email when we launch.</div>
+        </form>
+      </div>
+
+      <div class="form-success" id="form-success">
+        <span class="success-icon">🧡</span>
+        <h3 class="success-title">You're in the Squad.</h3>
+        <p class="success-body">We'll be in touch when Maahu launches in Mumbai. In the meantime, read the Closet Finance journal — real numbers from real Indian wardrobes.</p>
+        <a href="/blog" class="btn-dark">Read the Journal →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js';
+    import { getFirestore, collection, addDoc, serverTimestamp } from 'https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js';
+
+    // ─── YOUR FIREBASE CONFIG ───────────────────────────────────────────
+    // Replace the values below with your project's config from:
+    // Firebase Console → Project Settings → Your apps → Firebase SDK snippet
+    const firebaseConfig = {
+      apiKey: "AIzaSyB_Uy_irmnnQ20i8m7ic45fBejhsQrFVZo",
+      authDomain: "maahu-web.firebaseapp.com",
+      projectId: "maahu-web",
+      storageBucket: "maahu-web.firebasestorage.app",
+      messagingSenderId: "705211536206",
+      appId: "1:705211536206:web:ce3f06fa2b9aa5c69b441f"
+    };
+    // ────────────────────────────────────────────────────────────────────
+
+    const app = initializeApp(firebaseConfig);
+    const db  = getFirestore(app);
+
+    // Radio picker (keep existing behaviour)
+    window.pickRadio = function(label) {
+      document.querySelectorAll('.radio-label').forEach(function(l) { l.classList.remove('sel'); });
+      label.classList.add('sel');
+      var input = label.querySelector('input[type="radio"]');
+      if (input) input.checked = true;
+    };
+
+    // Form submit → save to Firestore
+    window.handleSubmit = async function(e) {
+      e.preventDefault();
+
+      var btn = document.querySelector('.form-submit');
+      btn.textContent = 'Saving…';
+      btn.disabled = true;
+
+      var name         = document.getElementById('f-name').value.trim();
+      var email        = document.getElementById('f-email').value.trim().toLowerCase();
+      var neighbourhood = document.getElementById('f-neighbourhood').value;
+      var intentInput  = document.querySelector('input[name="intent"]:checked');
+      var intent       = intentInput ? intentInput.value : 'not selected';
+
+      // Shared ID so the browser pixel (when it gets through) and the
+      // server-side Meta event for this same signup dedupe into one lead.
+      var eventId = (window.crypto && crypto.randomUUID)
+        ? crypto.randomUUID()
+        : 'evt_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+
+      try {
+        await addDoc(collection(db, 'squad_signups'), {
+          name:          name,
+          email:         email,
+          neighbourhood: neighbourhood,
+          intent:        intent,
+          source:        'join_page',
+          joinedAt:      serverTimestamp(),
+          eventId:       eventId
+        });
+
+        // Success — show confirmation
+        document.getElementById('form-wrap').style.display  = 'none';
+        document.getElementById('form-success').style.display = 'block';
+
+        // ─── Meta Pixel: track the sign-up ───────────────────────────
+        // Fire on EVERY successful sign-up (baseline)
+        if (window.fbq) {
+          fbq('track', 'Lead', {
+            content_name: 'Founding Squad Signup',
+            content_category: intent,          // borrow / lend / both / curious
+            neighbourhood: neighbourhood
+          }, { eventID: eventId });
+
+          // Fire the QUALIFIED event only for real intent (not "curious")
+          if (intent === 'lend' || intent === 'borrow' || intent === 'both') {
+            fbq('track', 'CompleteRegistration', {
+              content_name: 'Qualified Signup',
+              content_category: intent,
+              neighbourhood: neighbourhood
+            }, { eventID: eventId + '-reg' });
+          }
+        }
+        // ─────────────────────────────────────────────────────────────
+
+      } catch (err) {
+        console.error('Firestore error:', err);
+        btn.textContent = 'Join the Founding Squad →';
+        btn.disabled = false;
+
+        // Show inline error without breaking the form
+        var existing = document.getElementById('submit-error');
+        if (!existing) {
+          var errMsg = document.createElement('p');
+          errMsg.id = 'submit-error';
+          errMsg.style.cssText = 'font-size:12px;color:#c0392b;margin-top:10px;letter-spacing:0.03em;';
+          errMsg.textContent = 'Something went wrong — please try again in a moment.';
+          btn.parentNode.insertBefore(errMsg, btn.nextSibling);
+        }
+      }
+    };
+  </script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      if (!btn || !drawer) return;
+      function openMenu() {
+        drawer.style.display = 'flex';
+        requestAnimationFrame(function() {
+          drawer.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      function closeMenu() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+        setTimeout(function(){ drawer.style.display='none'; }, 420);
+      }
+      btn.addEventListener('click', function() {
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeMenu();
+      });
+      drawer.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

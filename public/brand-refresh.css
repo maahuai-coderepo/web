@@ -1,0 +1,383 @@
+:root {
+  --maahu-linen: #f7f0e6;
+  --maahu-linen-deep: #ede4d6;
+  --maahu-paper: #fffdf8;
+  --maahu-obsidian: #1a140d;
+  --maahu-obsidian-soft: #241c12;
+  --maahu-caramel: #b8933e;
+  --maahu-ink-muted: #655b50;
+  --maahu-line: rgba(26, 20, 13, 0.14);
+}
+
+/* Production brand application: linen-led pages, obsidian structure, gold accents. */
+body {
+  background: var(--maahu-linen);
+  color: var(--maahu-obsidian);
+  font-size: 16px;
+}
+
+nav {
+  background: rgba(26, 20, 13, 0.96);
+}
+
+.nav-links a {
+  font-size: 12px;
+}
+
+.nav-cta,
+.mobile-drawer-cta,
+.btn-primary,
+.btn-gold,
+.form-submit {
+  background: var(--maahu-obsidian) !important;
+  color: var(--maahu-linen) !important;
+  border: 1px solid var(--maahu-obsidian) !important;
+}
+
+nav .nav-cta,
+.mobile-drawer-cta {
+  border-color: var(--maahu-caramel) !important;
+}
+
+.nav-cta:hover,
+.mobile-drawer-cta:hover,
+.btn-primary:hover,
+.btn-gold:hover,
+.form-submit:hover {
+  background: var(--maahu-caramel) !important;
+  color: var(--maahu-obsidian) !important;
+  border-color: var(--maahu-caramel) !important;
+}
+
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+.btn-gold:focus-visible,
+.form-submit:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--maahu-caramel);
+  outline-offset: 3px;
+}
+
+
+/* ── Reduced-motion: keep animated content visible ── */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; }
+  body *, [class*="hero"],[class*="section"],[class*="card"],[class*="step"],[class*="stat"],[class*="post"],[class*="item"],[class*="title"],[class*="body"],[class*="actions"],[class*="vertical"],[class*="sub"],.eyebrow,.fade-up,[data-animate] {
+    opacity:1 !important; transform:none !important; animation:none !important;
+  }
+}
+/* ── Nav logo image ── */
+.nav-brand .nav-logo-img { height:34px; width:auto; display:block; }
+@media (max-width:900px){ .nav-brand .nav-logo-img { height:28px; } }
+
+/* ================================================================
+   ★ AUTHORITATIVE THEME (brand book 60-30-10) — loads last, wins all
+   DARK (30%): heroes, CTAs, founder spotlight, footer  → obsidian bg, cream text
+   LIGHT (60%): all reading sections                     → linen bg, obsidian text
+   GOLD (10%): accents (labels, emphasis, prices, links) → caramel, both themes
+   Colours: obsidian #1A140D · linen #F7F0E6 · caramel #B8933E
+   ================================================================ */
+
+/* ---------------- DARK SECTIONS ---------------- */
+.hero, .about-hero, .how-hero, .blog-hero, .join-left,
+.article-header, .big-cta, .marquee, .about-founder, footer {
+  background-color: #1A140D !important;
+}
+/* text in dark sections -> cream */
+.hero :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,a,strong,blockquote),
+.about-hero :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,a,strong,blockquote),
+.how-hero :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,a,strong,blockquote),
+.blog-hero :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,a,strong,blockquote),
+.join-left :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,strong,blockquote),
+.article-header :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,strong,blockquote),
+.big-cta :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,strong,blockquote),
+.about-founder :is(h1,h2,h3,h4,h5,h6,p,li,span,div,label,strong,blockquote),
+footer :is(p,li,span,div,label,strong) {
+  color: #F7F0E6 !important;
+}
+/* gold accents in dark sections (emphasis, eyebrows, labels) */
+.hero :is(em,.hero-eyebrow,.hero-eye,.eyebrow),
+.about-hero :is(em,.hero-eyebrow,.about-hero-eye,.eyebrow),
+.how-hero :is(em,.hero-eyebrow,.how-hero-eye,.eyebrow),
+.blog-hero :is(em,.hero-eyebrow,.eyebrow),
+.article-header :is(em,.article-series,.eyebrow),
+.big-cta :is(em,.big-cta-eye,.cta-eye,.eyebrow),
+.about-founder :is(em,.founder-label),
+footer a {
+  color: #B8933E !important;
+}
+/* dim sub-text in dark sections, still readable */
+.hero-sub, .hero-subtitle, .founder-body, .join-left .left-body,
+.big-cta-sub, .cta-sub, .about-hero-body {
+  color: rgba(247,240,230,0.75) !important;
+}
+/* footer links hover */
+footer a:hover { color: #F7F0E6 !important; }
+
+/* ---------------- LIGHT SECTIONS ---------------- */
+.value-section, .occasion-section, .about-origin, .about-values,
+.about-team, .how-section, .articles-section, .article-body,
+.faq-section, .author-bio, .join-right {
+  background-color: #F7F0E6 !important;
+}
+/* text in light sections -> obsidian */
+.value-section :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.occasion-section :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.about-origin :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.about-values :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.about-team :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.how-section :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.articles-section :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.article-body :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.faq-section :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.author-bio :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote),
+.join-right :is(h1,h2,h3,h4,h5,h6,p,li,td,th,span,div,label,strong,blockquote) {
+  color: #1A140D !important;
+}
+/* gold accents in light sections */
+.value-section :is(em,.value-num,.value-card-title,.section-label,.eyebrow),
+.occasion-section :is(em,.section-label,.eyebrow,.occasion-header .eyebrow),
+.about-origin :is(em,.section-label,.eyebrow),
+.about-values :is(em,.section-label,.value-num,.eyebrow),
+.about-team :is(em,.section-label,.team-role,.eyebrow),
+.how-section :is(em,.section-label,.how-label,.step-num,.eyebrow),
+.articles-section :is(em,.section-label,.post-series,.post-read-link,.article-series),
+.article-body :is(em,.rule-number,.budget-amount,.post-series,.section-label),
+.faq-section :is(em,.faq-label,.section-label),
+.author-bio :is(em,.author-name),
+.join-right :is(em,.form-label,.eyebrow) {
+  color: #B8933E !important;
+}
+/* secondary/muted body text in light sections stays readable dark-grey */
+.value-card-body, .value-body, .post-small-body, .post-excerpt,
+.team-bio, .faq-a, .how-body, .author-bio-text, .article-meta, .article-byline {
+  color: rgba(26,20,13,0.72) !important;
+}
+
+/* ---------------- COMPONENTS ---------------- */
+/* form fields (light join-right) */
+.join-right input, .join-right select, .join-right textarea {
+  color: #1A140D !important; border-color: rgba(26,20,13,0.25) !important;
+  background: #fff !important;
+}
+.join-right input::placeholder, .join-right textarea::placeholder { color: rgba(26,20,13,0.45) !important; }
+
+/* tables in light article bodies */
+.article-body table { border-color: rgba(26,20,13,0.15) !important; }
+.article-body th { color: #B8933E !important; border-color: rgba(26,20,13,0.2) !important; }
+.article-body td { color: #1A140D !important; border-color: rgba(26,20,13,0.1) !important; }
+
+/* inline-cta: a dramatic dark callout box inside light articles */
+.inline-cta { background: #1A140D !important; border: 1px solid rgba(184,147,62,0.3) !important; }
+.inline-cta p, .inline-cta :is(h2,h3,span,div) { color: rgba(247,240,230,0.85) !important; }
+.inline-cta a {
+  color: #1A140D !important; background: #B8933E !important;
+  padding: 12px 22px !important; border-radius: 2px !important;
+  display: inline-block !important; text-decoration: none !important; white-space: nowrap;
+}
+.inline-cta a:hover { background: #F7F0E6 !important; color: #1A140D !important; }
+
+/* post cards on the light journal grid */
+.post-title, .post-small-title, .post-featured-content .post-title { color: #1A140D !important; }
+.articles-section .post-read-link, .articles-section .post-series { color: #B8933E !important; }
+
+/* ================================================================
+   ★ DARK COMPONENTS INSIDE LIGHT SECTIONS
+   Some cards/overlays have their own dark background (value cards,
+   occasion image cards, inline callouts). Their text must be CREAM,
+   not obsidian, regardless of the parent section's theme.
+   ================================================================ */
+/* Value cards: dark card (--dark-2) with cream text + gold accents */
+.value-card { background: #241C12 !important; border-color: rgba(184,147,62,0.18) !important; }
+.value-card :is(.value-card-body, p, span, div) { color: rgba(247,240,230,0.82) !important; }
+.value-card :is(.value-card-title, .value-num, em) { color: #B8933E !important; }
+
+/* Occasion image cards: text overlays a dark photo -> cream */
+.occ-card, .occ-text { }
+.occ-text :is(.occ-name, p, span, div) { color: #F7F0E6 !important; }
+.occ-text :is(.occ-tag, em) { color: #B8933E !important; }
+
+/* Any element sitting over an image overlay stays light */
+.occ-overlay ~ .occ-text *, .hero-overlay ~ * , .about-hero-overlay ~ *,
+.how-hero-overlay ~ *, .post-featured-overlay ~ * {
+  color: #F7F0E6 !important;
+}
+
+/* ================================================================
+   ★ COMPREHENSIVE DARK-CARD TEXT FIX
+   Components with a dark card background (var(--dark-2/-3)) that live
+   inside light sections were wrongly given dark text. Force cream.
+   ================================================================ */
+.pull-quote, .pull-source, .radio-label, .radio-option, .radio-card,
+.value-card-body, .value-card-title, .stat-card, .callout-dark,
+.occ-text, .occ-tag, .occ-name {
+  /* handled per-element below with correct cream/gold */
+}
+/* Pull quotes (dark card) */
+.pull-quote { color: #F7F0E6 !important; }
+.pull-source { color: #B8933E !important; }
+/* Radio option labels in the join form live on dark cards -> cream */
+.radio-label, .radio-option label, .radio-card, .radio-option,
+.intent-option, .intent-label { color: #F7F0E6 !important; }
+.radio-option .radio-sub, .radio-desc { color: rgba(247,240,230,0.65) !important; }
+/* Occasion overlay text on images -> cream + shadow for legibility */
+.occ-text .occ-name, .occ-name { color: #F7F0E6 !important; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+.occ-text .occ-tag, .occ-tag { color: #B8933E !important; text-shadow: 0 1px 8px rgba(0,0,0,0.6); }
+/* Article rule/budget accents: darken their tint box so gold reads crisply */
+.article-body .rule-number, .article-body .budget-amount { color: #8A6D24 !important; font-weight: 600 !important; }
+.rule-block, .rule-card { background: rgba(26,20,13,0.04) !important; }
+
+/* ================================================================
+   ★ FINAL SPECIFICITY-SAFE OVERRIDES (body-scoped to win cascades)
+   ================================================================ */
+/* Join form radio cards: make them LIGHT to match the linen join-right
+   section (was dark card + dark text = invisible). */
+body .join-right .radio-label,
+body .join-right .radio-option,
+body .join-right .radio-card {
+  background: #FFFFFF !important;
+  color: #1A140D !important;
+  border: 1px solid rgba(26,20,13,0.2) !important;
+}
+body .join-right .radio-label.sel {
+  background: #B8933E !important; color: #1A140D !important; border-color: #B8933E !important;
+}
+body .join-right .radio-label:hover { border-color: #B8933E !important; color: #1A140D !important; }
+body .join-right .radio-dot { border-color: rgba(26,20,13,0.4) !important; }
+
+/* About pull-quote: it's a dark card in a light section -> keep dark bg, cream text */
+body .about-origin .pull-quote, body .about-values .pull-quote,
+body .about-team .pull-quote, body .pull-quote {
+  background: #241C12 !important; color: #F7F0E6 !important;
+}
+body .pull-source { color: #B8933E !important; }
+
+/* Article rule blocks: ensure body text + strong are dark on light article */
+body .article-body :is(.rule-block,.rule-card,.tip-block,.callout) :is(p,strong,span,li) {
+  color: #1A140D !important;
+}
+body .article-body :is(.rule-block,.rule-card) { background: rgba(184,147,62,0.08) !important; }
+body .article-body strong { color: #1A140D !important; }
+body .article-body .rule-number { color: #8A6D24 !important; }
+
+/* ================================================================
+   ★ PULL-QUOTES + OCCASION NAMES — final, child-inclusive
+   ================================================================ */
+/* Pull-quote is a dark card; force the card AND all its children cream */
+body .pull-quote, body .article-body .pull-quote,
+body .pull-quote * , body .article-body .pull-quote * {
+  color: #F7F0E6 !important;
+}
+body .pull-quote { background: #241C12 !important; }
+body .pull-source, body .pull-quote .pull-source,
+body .pull-quote cite, body .pull-quote .source { color: #B8933E !important; }
+
+/* Occasion card names/tags sit on dark photos -> cream with shadow, always */
+body .occ-card .occ-name, body .occ-text .occ-name,
+body .occ-card .occ-tag, body .occ-text .occ-tag {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.75) !important;
+}
+body .occ-card .occ-name, body .occ-text .occ-name { color: #FFFFFF !important; }
+body .occ-card .occ-tag, body .occ-text .occ-tag { color: #E8C97A !important; }
+/* darken the occasion overlay so text always has contrast */
+body .occ-overlay {
+  background: linear-gradient(to top, rgba(26,20,13,0.85) 0%, rgba(26,20,13,0.15) 60%, rgba(26,20,13,0.05) 100%) !important;
+}
+
+/* ================================================================
+   ★ JOURNAL PAGE — featured card + waitlist banner
+   ================================================================ */
+/* Featured post card: text sits on a DARK image overlay -> force cream,
+   overriding the light-section rule that wrongly darkened it. */
+body .post-featured .post-featured-content,
+body .post-featured .post-featured-content * ,
+body .articles-section .post-featured .post-title,
+body .articles-section .post-featured .post-excerpt,
+body .articles-section .post-featured .post-meta,
+body .articles-section .post-featured .post-author,
+body .articles-section .post-featured .post-date {
+  color: #F7F0E6 !important;
+}
+body .post-featured .post-series,
+body .post-featured .post-read-link { color: #E8C97A !important; }
+/* strengthen the featured overlay so text always reads even if image is light */
+body .post-featured-overlay {
+  background: linear-gradient(to top, rgba(10,7,4,0.96) 0%, rgba(10,7,4,0.7) 45%, rgba(10,7,4,0.25) 100%) !important;
+}
+
+/* Waitlist banner: it's a light (gold-faint) box -> dark text, not cream */
+body .waitlist-banner { background: #F0E6D2 !important; border-color: rgba(184,147,62,0.4) !important; }
+body .waitlist-banner .banner-text h3 { color: #1A140D !important; }
+body .waitlist-banner .banner-text p { color: rgba(26,20,13,0.72) !important; }
+body .waitlist-banner .banner-cta { color: #1A140D !important; background: #B8933E !important; }
+body .waitlist-banner .banner-cta:hover { background: #1A140D !important; color: #F7F0E6 !important; }
+
+/* Small/secondary post cards on the light grid: ensure titles are dark,
+   series/links gold, excerpts readable. */
+body .articles-section .post-small .post-title,
+body .articles-section .post-small-title { color: #1A140D !important; }
+body .articles-section .post-small .post-series,
+body .articles-section .post-read-link { color: #B8933E !important; }
+body .articles-section .post-small-body,
+body .articles-section .post-excerpt { color: rgba(26,20,13,0.72) !important; }
+
+/* ================================================================
+   ★ ARTICLE HERO — OPTION B: image first, title below on light
+   Reorder so the hero image leads (full impact), then the title
+   sits in clean light space beneath it in dark text.
+   ================================================================ */
+body article {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #F7F0E6 !important;
+}
+/* image leads */
+body article .hero-image {
+  order: 1 !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body article .hero-image img {
+  width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  height: auto !important;
+  max-height: 620px !important;
+  object-fit: cover !important;
+  object-position: center 25% !important;
+  display: block !important;
+}
+@media (max-width: 640px){
+  body article .hero-image img { aspect-ratio: 4 / 3 !important; }
+}
+/* header second, on light, dark text */
+body article .article-header {
+  order: 2 !important;
+  background: #F7F0E6 !important;
+  max-width: 760px !important;
+  margin: 0 auto !important;
+  padding: 48px 48px 32px !important;
+}
+body article .article-header .article-title { color: #1A140D !important; }
+body article .article-header .article-series { color: #B8933E !important; }
+body article .article-header .author-name { color: #1A140D !important; }
+body article .article-header .article-meta { color: rgba(26,20,13,0.55) !important; }
+body article .article-header .article-byline { border-top-color: rgba(26,20,13,0.18) !important; }
+body article .article-header .dot { background: #B8933E !important; }
+/* body third */
+body article .article-body { order: 3 !important; }
+/* everything after the body keeps its natural place (must be > 3, since
+   default order:0 would jump them above the ordered items) */
+body article .faq-section { order: 4 !important; }
+body article .author-bio { order: 5 !important; }
+body article > *:not(.hero-image):not(.article-header):not(.article-body):not(.faq-section):not(.author-bio) { order: 6 !important; }
+
+/* mobile: image a touch shorter */
+@media (max-width: 640px){
+  body article .article-header { padding: 32px 24px 24px !important; }
+}

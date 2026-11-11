@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>I Audited My Mumbai Closet. It's Worth ₹3 Lakhs. — Maahu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="I photographed every piece in my Bandra cupboard and did the maths. ₹3,10,000. Sitting there. Folded. Mostly unworn. Here's what I found." />
+  <!-- SEO keywords -->
+  <meta name="keywords" content="closet worth India, wardrobe value, cost-per-wear India, wardrobe audit" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="I Audited My Mumbai Closet. It's Worth ₹3 Lakhs." />
+  <meta property="og:description" content="Real numbers from a Bandra wardrobe audit. What your clothes are actually worth — and what to do about it." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://maahu.ai/blog/closet-audit-mumbai" />
+  <link rel="canonical" href="https://maahu.ai/blog/closet-audit-mumbai" />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <style>
+    :root {
+      --cream:       #f7f0e6;
+      --cream-2:     #ede4d6;
+      --cream-3:     #e4d8c6;
+      --gold:        #b8933e;
+      --gold-light:  #d4ae6a;
+      --gold-pale:   #e8d5a8;
+      --gold-faint:  rgba(184,147,62,0.12);
+      --dark:        #1a140d;
+      --dark-2:      #241c12;
+      --dark-3:      #2e2418;
+      --text:        #f7f0e6;
+      --text-mid:    rgba(247,240,230,0.65);
+      --text-dim:    rgba(247,240,230,0.4);
+      --border:      rgba(184,147,62,0.2);
+      --border-2:    rgba(184,147,62,0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* Grain */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index:200;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 56px;
+      background: rgba(26,20,13,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(184,147,62,0.15);
+      transition: all 0.3s ease;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #f7f0e6;
+      text-decoration: none;
+    }
+    .nav-brand span { color: #b8933e; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(247,240,230,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: #b8933e;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: #b8933e; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #b8933e; }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.3em !important;
+      color: #1a140d !important;
+      background: #b8933e;
+      padding: 11px 24px !important;
+      transition: background 0.3s ease !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: #e8d5a8 !important; color: #1a140d !important; }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 6px;
+      background:none; border:none; z-index:210;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation; cursor:pointer;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: #f7f0e6;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.3s ease, width 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: #e8d5a8; }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: #e8d5a8; }
+
+    /* ── Mobile Drawer ── */
+    .mobile-drawer {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index:205;
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      background: rgba(14,11,8,0.97) !important;
+      backdrop-filter: blur(24px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity: 1; pointer-events: all; }
+    .mobile-drawer ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0; width: 100%;
+    }
+    .mobile-drawer ul li {
+      width: 100%; text-align: center;
+      border-bottom: 1px solid rgba(184,147,62,0.1);
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top: 1px solid rgba(184,147,62,0.1); }
+    .mobile-drawer.open ul li { transform: translateY(0); opacity: 1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay: 0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay: 0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay: 0.20s; }
+    .mobile-drawer.open ul li:nth-child(4) { transition-delay: 0.26s; }
+    .mobile-drawer ul li a {
+      display: block; padding: 22px 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 300;
+      letter-spacing: 0.06em;
+      color: rgba(247,240,230,0.7) !important;
+      text-decoration: none; transition: color 0.2s;
+    }
+    .mobile-drawer ul li a:hover { color:var(--gold); }
+    .mobile-drawer ul li a.active {
+      color:var(--gold) !important;
+      background:rgba(184,147,62,0.08);
+      border-left:3px solid var(--gold);
+      padding-left:37px;
+    }
+    .mobile-drawer-cta {
+      margin-top: 40px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: #1a140d; background: #b8933e;
+      padding: 16px 52px; text-decoration: none;
+      display: inline-block;
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease 0.34s, opacity 0.4s ease 0.34s, background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform: translateY(0); opacity: 1; }
+    .mobile-drawer-cta:hover { background: #e8d5a8; }
+    .mobile-drawer-city {
+      position: absolute; bottom: 36px;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(184,147,62,0.35);
+      transform: translateY(10px); opacity: 0;
+      transition: transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform: translateY(0); opacity: 1; }
+
+    .breadcrumb {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .breadcrumb a {
+      color: var(--cream-dim);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { color: rgba(245,237,224,0.3); margin: 0 10px; }
+
+    /* ── Article header ── */
+    .article-header {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 48px 56px;
+      opacity: 0;
+      animation: fadeUp 0.9s ease 0.2s forwards;
+    }
+
+    .article-series {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .article-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(38px, 5.5vw, 60px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--cream);
+      margin-bottom: 28px;
+    }
+
+    .article-byline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(201,169,110,0.15);
+    }
+
+    .author-name {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--cream);
+    }
+
+    .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+
+    .article-meta {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: rgba(245,237,224,0.4);
+    }
+
+    /* ── Hero image ── */
+    .hero-image {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto 0;
+      padding: 0 48px;
+    }
+
+    /* ── Article body ── */
+    .article-body {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 56px 48px 100px;
+    }
+
+    .article-body p {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: rgba(245, 237, 224, 0.82);
+      margin-bottom: 28px;
+      letter-spacing: 0.01em;
+    }
+
+    .article-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.5vw, 34px);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--cream);
+      margin: 64px 0 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .article-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold-light);
+      margin: 40px 0 16px;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 2px solid var(--gold);
+      padding: 4px 0 4px 32px;
+      margin: 48px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.8vw, 26px) !important;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.5 !important;
+      color: var(--cream) !important;
+      margin: 0 !important;
+    }
+
+    /* Stat callout */
+    .stat-block {
+      background: var(--gold-faint);
+      border: 1px solid rgba(201, 169, 110, 0.18);
+      padding: 32px 36px;
+      margin: 40px 0;
+    }
+
+    .stat-block p {
+      font-size: 13px !important;
+      font-weight: 300;
+      line-height: 1.75 !important;
+      color: rgba(245, 237, 224, 0.65) !important;
+      font-style: italic;
+      margin: 0 !important;
+    }
+
+    .stat-block cite {
+      display: block;
+      font-size: 10px;
+      font-style: normal;
+      letter-spacing: 0.15em;
+      color: rgba(245,237,224,0.3);
+      margin-top: 12px;
+    }
+
+    /* Data table */
+    .data-table-wrap {
+      margin: 40px 0;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    thead th {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 12px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(201,169,110,0.2);
+    }
+
+    tbody td {
+      padding: 14px 20px;
+      font-weight: 300;
+      color: rgba(245,237,224,0.75);
+      border-bottom: 1px solid rgba(245,237,224,0.05);
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody tr:hover td {
+      background: var(--cream-faint);
+    }
+
+    td.high-cpw {
+      color: #e8896e;
+      font-weight: 400;
+    }
+
+    td.low-cpw {
+      color: #8ec98e;
+      font-weight: 400;
+    }
+
+    /* Section divider */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 64px 0 48px;
+    }
+
+    .section-divider::before,
+    .section-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,169,110,0.15);
+    }
+
+    .section-divider-icon {
+      font-size: 14px;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+
+    /* Waitlist CTA */
+    .inline-cta {
+      background: var(--gold-faint);
+      border: 1px solid rgba(201, 169, 110, 0.2);
+      padding: 28px 32px;
+      margin: 40px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .inline-cta p {
+      font-size: 14px !important;
+      color: var(--cream-dim) !important;
+      margin: 0 !important;
+      font-style: italic;
+    }
+
+    .inline-cta a {
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid rgba(201,169,110,0.35);
+      padding: 10px 20px;
+      white-space: nowrap;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .inline-cta a:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    /* FAQs */
+    .faq-section {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+    }
+
+    .faq-label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 36px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: rgba(201,169,110,0.2);
+    }
+
+    .faq-item {
+      border-top: 1px solid rgba(245,237,224,0.07);
+      padding: 28px 0;
+    }
+
+    .faq-item:last-child { border-bottom: 1px solid rgba(245,237,224,0.07); }
+
+    .faq-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 14px;
+      line-height: 1.35;
+    }
+
+    .faq-a {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--cream-dim);
+    }
+
+    /* Author bio */
+    .author-bio {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 auto 80px;
+      padding: 0 48px;
+    }
+
+    .author-bio-inner {
+      border-top: 1px solid rgba(201,169,110,0.15);
+      padding-top: 40px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
+
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--dark-mid);
+      border: 1px solid rgba(201,169,110,0.2);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    .author-bio-text h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+
+    .author-bio-text p {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--cream-dim);
+    }
+
+    /* ── Footer ── */
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 768px) {
+      .article-title { font-size:clamp(28px,8vw,36px); }
+      .article-body p { font-size:15px; line-height:1.85; }
+      .nav-hamburger { display:flex; }
+      .nav-links { display:none; }
+      nav { padding: 20px 24px; }
+      .article-header,
+      .hero-image,
+      .article-body,
+      .faq-section,
+      .author-bio { padding-left: 24px; padding-right: 24px; }
+      .article-title { font-size: 34px; }
+      .article-body p { font-size: 15px; }
+      .pull-quote { padding-left: 20px; }
+      .inline-cta { flex-direction: column; text-align: center; }
+    }
+
+    footer {
+      background:var(--dark-2);
+      border-top:2px solid rgba(184,147,62,0.25);
+      padding:64px 56px 40px;
+    }
+    .footer-top {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:56px; padding-bottom:48px;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      margin-bottom:36px;
+    }
+    .footer-brand-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px; font-weight:300;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); margin-bottom:14px;
+    }
+    .footer-brand-name span { color:var(--gold); }
+    .footer-tagline {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0;
+      line-height:1.7; max-width:220px;
+      letter-spacing:0.04em;
+    }
+    .footer-col-title {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+    }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0; text-decoration:none;
+      transition:color 0.3s; letter-spacing:0.04em;
+    }
+    .footer-links a:hover { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    .footer-bottom {
+      display:flex; justify-content:center; align-items:center; gap:32px;
+    }
+    .footer-copy {
+      font-size:10px; font-weight:300;
+      color:#a0a0a0; letter-spacing:0.12em;
+    }
+    .footer-city {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.55);
+    }
+    .footer-insta {
+      display:inline-flex; align-items:center;
+      font-size:11px; font-weight:300;
+      letter-spacing:0.12em;
+      color:#D0D0D0;
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-insta:hover { color:var(--gold); }
+</style>
+
+  <!-- Article structured data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "I Audited My Mumbai Closet. It's Worth ₹3 Lakhs.",
+    "author": { "@type": "Person", "name": "Ritika" },
+    "publisher": { "@type": "Organization", "name": "Maahu" },
+    "datePublished": "2026-03-01",
+    "description": "A Mumbai wardrobe audit reveals ₹3,10,000 sitting idle in a Bandra cupboard — and a new way to think about Indian women's clothing as a financial asset.",
+    "url": "https://maahu.ai/blog/closet-audit-mumbai"
+  }
+  </script>
+  <link rel="stylesheet" href="/brand-refresh.css" />
+  <!-- Meta Pixel Base Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1040673992145213');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1040673992145213&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Base Code -->
+</head>
+<body>
+
+    <nav>
+    <a href="/" class="nav-brand"><img src="/assets/maahu-logo-nav-light.png" alt="Maahu" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/join" class="mobile-drawer-cta">Join the Founding Squad</a>
+    <div class="mobile-drawer-city">Mumbai · Est. 2026</div>
+  </div>
+
+  <article>
+
+    <header class="article-header">
+      <p class="article-series">Wardrobe Audit</p>
+      <h1 class="article-title">I Audited My Mumbai Closet. It's Worth ₹3 Lakhs.</h1>
+      <div class="article-byline">
+        <span class="author-name">Ritika</span>
+        <span class="dot"></span>
+        <span class="article-meta">March 2026</span>
+        <span class="dot"></span>
+        <span class="article-meta">7 min read</span>
+      </div>
+    </header>
+
+    <!-- Hero image — update filename to match your actual file in /assets/ -->
+    <div class="hero-image">
+      <img src="/assets/your-flatlay-photo.jpeg" alt="Mumbai wardrobe audit flat-lay" style="width:100%;display:block;" />
+    </div>
+
+    <div class="article-body">
+
+      <p>Last Diwali, I was back in Mumbai when Himani called me in a panic. She had three weddings in six weeks and nothing to wear — or so she thought. I told her: before you buy a single thing, let's audit what you already own. She laughed. Then she agreed.</p>
+
+      <p>We spent a Sunday afternoon on her bedroom floor in Bandra pulling everything out. Every lehenga. Every kurta bought for "some occasion." Every blazer purchased with the best of intentions. By the time we finished, her room looked like a FabIndia store had exploded.</p>
+
+      <p>I photographed each piece and did the maths. The number that came back stopped us both cold: <strong style="color: var(--cream); font-weight: 400;">₹3,10,000.</strong> Sitting there. Folded. Mostly unworn. Himani didn't need to go shopping. She needed to meet her own wardrobe.</p>
+
+      <h2>What Is Closet Worth — and Why It Matters</h2>
+
+      <p>Closet worth is the estimated current value of everything you own in your wardrobe — not what you paid for it, but what it's actually worth today in resale or rental terms.</p>
+
+      <p>It's calculated using three numbers: original purchase price, number of times worn, and current market value if lent or resold. Most women have never done this calculation. I hadn't either. Once I did, I stopped thinking about clothes as expenses and started seeing them as assets with utilisation rates — some earning their place, most sitting completely idle.</p>
+
+      <div class="stat-block">
+        <p>Clothing, bedding & footwear accounts for 6.63% of the average urban Indian household's monthly per capita expenditure. With urban MPCE at ₹6,459 in 2022-23, that's over ₹5,100 per person per year spent on clothes — and a large share of it is worn once or twice, then forgotten.</p>
+        <cite>NSSO Household Consumption Expenditure Survey (HCES), MoSPI, 2022-23</cite>
+      </div>
+
+      <p>Over ten years, that's easily a ₹1–5 lakh wardrobe. Almost none of it tracked. Almost none of it working.</p>
+
+      <div class="inline-cta">
+        <p>If you've been meaning to do this yourself — Maahu is building the tool. Your closet could be doing more.</p>
+        <a href="/join">Join the waitlist →</a>
+      </div>
+
+      <h2>How I Actually Calculated My Wardrobe's Value</h2>
+
+      <p>The first instinct is to add up what you paid. That's the wrong number — purchase price is sunk cost. What I needed was current value: what each piece is worth on the market today, and what it cost me per wear.</p>
+
+      <p>I built a simple three-column spreadsheet: purchase price, times worn, current resale or lending value. The third column is the one that changes everything.</p>
+
+      <div class="data-table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Item</th>
+              <th>Purchase Price</th>
+              <th>Times Worn</th>
+              <th>Cost Per Wear</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Anita Dongre Kurta Set</td>
+              <td>₹14,000</td>
+              <td>2</td>
+              <td class="high-cpw">₹7,000</td>
+            </tr>
+            <tr>
+              <td>Nicobar Cotton Co-ord</td>
+              <td>₹3,500</td>
+              <td>30</td>
+              <td class="low-cpw">₹117</td>
+            </tr>
+            <tr>
+              <td>Bodycon Party Dress</td>
+              <td>₹8,000</td>
+              <td>1</td>
+              <td class="high-cpw">₹8,000</td>
+            </tr>
+            <tr>
+              <td>Kanjeevaram Saree</td>
+              <td>₹22,000</td>
+              <td>8</td>
+              <td>₹2,750</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>The most expensive pieces weren't always the worst decisions. The real damage was done by pieces worn once or twice — the occasion dress, the 'this will be perfect for something' kurta, the wedding guest outfit bought in a panic. Those are the ones that silently destroy your cost-per-wear average.</p>
+
+      <div class="pull-quote">
+        <p>"The difference between a good clothing decision and a bad one isn't the price tag. It's how many times you actually wear it."</p>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-divider-icon">◆</span>
+      </div>
+
+      <h2>The Three Types of Clothing Assets in Every Indian Wardrobe</h2>
+
+      <p>After the audit, every piece in my cupboard fell into one of three categories. Understanding which is which changes how you care for things, what you buy next, and what you do with what you already own.</p>
+
+      <h3>1. Heritage Textiles — Hold or Appreciate in Value</h3>
+
+      <p>This is the category most Indian women are sitting on without realising it. Kanjeevaram silk, Banarasi weaves, Kutch embroidery, Chanderi — these pieces behave almost like collectible assets. My Kanjeevaram purchased for ₹22,000 in 2019 would fetch ₹32,000+ today. Weavers' wages have risen. Raw silk prices have moved. The market knows it, even if we don't.</p>
+
+      <p>These are the pieces that deserve proper storage — muslin covers, silica gel, actual care. They earn it.</p>
+
+      <h3>2. Designer Staples — Strong Rental and Resale Value</h3>
+
+      <p>A cream linen blazer from a Kala Ghoda boutique. A structured navy kurta that works for a client meeting and a Sunday brunch both. These pieces hold value because they're versatile — someone else can wear them without feeling like they're in costume. They lend well, they resell well, and they carry their weight across years.</p>
+
+      <p>This is the category I want more of and actively look for now. Classic silhouettes. Neutral palette. Indian designer, not fast fashion.</p>
+
+      <h3>3. Fast Fashion and Occasion Wear — Where Money Goes to Die</h3>
+
+      <p>Trend-driven party dresses. Heavily embellished one-time shaadi outfits. The ₹8,000 bodycon I wore to one rooftop party in 2022 and haven't touched since. High purchase price, terrible cost-per-wear, no secondhand appetite whatsoever.</p>
+
+      <p>These aren't assets. They're lessons. And the lesson most of us learn too slowly is that buying more of this category is the one financial decision you can reverse — by just stopping.</p>
+
+      <div class="stat-block">
+        <p>India's second-hand apparel market was valued at approximately $3 billion (around ₹25,000 crore) in 2023, and is projected to reach $9.1 billion by 2032 at a 13% CAGR. Women's apparel is the largest segment. The demand for what's sitting in your cupboard already exists.</p>
+        <cite>Credence Research, India Second-Hand Apparel Market Report, 2024</cite>
+      </div>
+
+      <div class="section-divider">
+        <span class="section-divider-icon">◆</span>
+      </div>
+
+      <h2>₹3,10,000 in Fabric Is ₹21,700 in Lost Interest Every Year</h2>
+
+      <p>₹3,10,000 sitting idle in a cupboard is an asset with zero yield. A fixed deposit at 7% on that amount would have generated roughly ₹21,700 in interest this year. My wardrobe generated exactly nothing.</p>
+
+      <p>That's the real reframe: it isn't money gone. It's money that was converted into an asset and then abandoned. Unlike a bad stock, this one is recoverable. The silk is still silk. The structured pieces are still wearable. The question is what happens next.</p>
+
+      <p>We talk about gold investments, property, SIPs — we have entire family conversations about where to park ₹3 lakh. Nobody talks about the ₹2–5 lakh sitting folded in the average urban Indian woman's cupboard, doing nothing. That silence is what Maahu is here to break.</p>
+
+      <div class="section-divider">
+        <span class="section-divider-icon">◆</span>
+      </div>
+
+      <h2>What I Did After the Audit</h2>
+
+      <p>After the audit, I moved my heritage pieces into proper storage immediately. Muslin covers, silica gel, better care. These are the ones worth protecting.</p>
+
+      <p>Then I messaged three friends. Not to sell anything — to swap. I had an Anita Dongre set that would look incredible on my friend Sana for her office party. She had a Raw Mango I'd been eyeing since her sister's wedding. We met over chai, swapped for the season, and both walked away feeling like we'd gone shopping for free.</p>
+
+      <p>The bigger shift was at the point of purchase. I stopped asking 'will I wear this?' — we always say yes — and started asking: <em>how many times will I realistically wear this in the next 12 months?</em> If the answer is once, the cost-per-wear maths makes the decision for you. Most impulse buys fail that test. Shaadi season buys almost always fail it.</p>
+
+      <div class="pull-quote">
+        <p>"Stop asking 'will I wear this?' Ask 'how many times will I wear this in the next 12 months?' If the answer is once — the maths has already decided for you."</p>
+      </div>
+
+    </div>
+
+    <!-- FAQs -->
+    <section class="faq-section">
+      <div class="faq-label">Frequently Asked</div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How do I calculate my wardrobe value in India?</h3>
+        <p class="faq-a">List every item and record two numbers: what you originally paid and how many times you've worn it. Your cost-per-wear is purchase price ÷ number of wears. For current market value, check what comparable pieces fetch on Indian resale platforms like Relove or Vestiaire Collective India. Heritage textiles — Kanjeevaram, Banarasi, handloom weaves — typically hold or appreciate in value; fast fashion and heavily embellished occasion wear lose value quickly and have almost no resale market.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">What is the average wardrobe worth in India for an urban woman?</h3>
+        <p class="faq-a">There is no published national figure — this is one of the most undertracked numbers in India. Based on my own Mumbai audit and conversations with women across Mumbai, Delhi, and Bengaluru, wardrobes valued between ₹1 lakh and ₹5 lakh are common among urban professionals, especially when you account for years of accumulated occasion wear, wedding outfits, and gifted or inherited textiles. Most women underestimate this because they think in purchase prices, not current value.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">Is Indian clothing a good investment?</h3>
+        <p class="faq-a">Indian heritage textiles — Kanjeevaram silk, Banarasi sarees, Chanderi, hand-embroidered pieces from established weavers — have historically held or appreciated in value due to rising raw material costs and artisan wages. Contemporary Indian designer wear in classic silhouettes also retains strong rental and resale value. Fast fashion and heavily embellished occasion wear typically have poor resale value and a high cost-per-wear ratio. The distinction matters because both categories often look identical on a price tag.</p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-q">How can I make money from clothes I don't wear in India?</h3>
+        <p class="faq-a">Indian women have three practical options: listing on fashion resale platforms like Relove, Chicc, or Vestiaire Collective India; peer-to-peer lending with friends and community for weddings and occasions; or joining a curated wardrobe-sharing platform. Heritage textiles and Indian designer wear are particularly valuable for lending because demand spikes during wedding season. The second-hand apparel market in India was valued at $3 billion in 2023 — the demand exists, the infrastructure is catching up.</p>
+      </div>
+
+    </section>
+
+    <!-- Author bio -->
+    <div class="author-bio">
+      <div class="author-bio-inner">
+        <div class="author-avatar">R</div>
+        <div class="author-bio-text">
+          <h4>Ritika</h4>
+          <p>Founder of Maahu — a platform built at the intersection of Indian wardrobes and personal finance. Maahu was born from one Sunday afternoon auditing Himani's closet in Bandra, and the ₹3,10,000 number that made them both stop and rethink everything they knew about getting dressed.</p>
+        </div>
+      </div>
+    </div>
+
+  </article>
+
+    <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Maahu<span>.</span></div>
+        <div class="footer-tagline">India's first community wardrobe. Wear more. Own less. Trust more.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/join">Join the Founding Squad</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Journal</div>
+        <ul class="footer-links">
+          <li><a href="/blog">Closet Finance</a></li>
+          <li><a href="/blog/closet-audit-mumbai">The Mumbai Audit</a></li>
+          <li><a href="/blog/outfit-repeat-stigma-india">The Fear Tax</a></li>
+          <li><a href="/blog/bali-packing-list-indian-women">Bali Packing Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/join">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Maahu AI Digital Private Limited · maahu.ai 🧡</div>
+      <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="footer-insta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@maahu.ai
+      </a>
+      <div class="footer-city">Launching Mumbai · 2026</div>
+    </div>
+  </footer>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      if (!btn || !drawer) return;
+      function openMenu() {
+        drawer.style.display = 'flex';
+        requestAnimationFrame(function() {
+          drawer.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      function closeMenu() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+        setTimeout(function(){ drawer.style.display='none'; }, 420);
+      }
+      btn.addEventListener('click', function() {
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeMenu();
+      });
+      drawer.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

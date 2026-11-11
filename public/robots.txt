@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block editor or private paths if added in future
+Disallow: /private/
+Disallow: /admin/
+
+# Sitemap location
+Sitemap: https://maahu.ai/sitemap.xml

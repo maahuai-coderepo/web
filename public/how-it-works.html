@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>How Maahu Works — Rent or Lend Occasion Wear in Mumbai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="See how Maahu's rental process works: browse verified wardrobes, request to borrow, or list your own designer pieces to lend safely in Mumbai's trusted community." />
+  <link rel="canonical" href="https://maahu.ai/how-it-works" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <style>
+    :root {
+      --cream:       #f7f0e6;
+      --cream-2:     #ede4d6;
+      --cream-3:     #e4d8c6;
+      --gold:        #b8933e;
+      --gold-light:  #d4ae6a;
+      --gold-pale:   #e8d5a8;
+      --gold-faint:  rgba(184,147,62,0.12);
+      --dark:        #1a140d;
+      --dark-2:      #241c12;
+      --dark-3:      #2e2418;
+      --text:        #f7f0e6;
+      --text-mid:    rgba(247,240,230,0.65);
+      --text-dim:    rgba(247,240,230,0.4);
+      --border:      rgba(184,147,62,0.2);
+      --border-2:    rgba(184,147,62,0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--dark); color:var(--cream);
+      font-family:'Jost',sans-serif; font-weight:300;
+      overflow-x:hidden; padding-top:80px;
+    }
+    body::after {
+      content:''; position:fixed; inset:0; opacity:0.025;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:200px; pointer-events:none; z-index:1; touch-action:none;
+    }
+/* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px 56px;
+      background:rgba(26,20,13,0.97);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      transition:all 0.3s ease;
+    }
+    .nav-brand {
+      font-family:'Cormorant Garamond',serif;
+      font-size:21px; font-weight:400;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); text-decoration:none;
+    }
+    .nav-brand span { color:var(--gold); }
+    .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+    .nav-links a {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.28em; text-transform:uppercase;
+      color:rgba(247,240,230,0.5); text-decoration:none;
+      transition:color 0.3s;
+      position:relative; padding-bottom:2px;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-2px; left:0;
+      width:0; height:1px; background:var(--gold);
+      transition:width 0.3s ease;
+    }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-links a.active { color:var(--gold); }
+    .nav-links a.active::after { width:100%; }
+    .nav-cta {
+      font-size:10px !important; font-weight:500 !important;
+      letter-spacing:0.3em !important;
+      color:var(--cream) !important;
+      background:var(--gold);
+      padding:11px 24px !important;
+      transition:background 0.3s ease !important;
+    }
+    .nav-cta::after { display:none !important; }
+    .nav-cta:hover { background:var(--dark) !important; color:var(--cream) !important; }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display:none;
+      flex-direction:column; justify-content:center;
+      gap:5px; cursor:pointer; padding:6px;
+      background:none; border:none; z-index:210;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation; cursor:pointer;
+    }
+    .nav-hamburger span {
+      display:block; width:22px; height:1.5px;
+      background:var(--cream);
+      transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                 opacity 0.3s ease, width 0.3s ease;
+      transform-origin:center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); background:var(--gold-pale); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; width:0; }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); background:var(--gold-pale); }
+
+    /* ── MOBILE DRAWER ── */
+    .mobile-drawer {
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      z-index:205;
+      flex-direction:column;
+      justify-content:center; align-items:center;
+      background:rgba(26,20,13,0.97) !important;
+      backdrop-filter:blur(24px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity:1; pointer-events:all; }
+    .mobile-drawer ul {
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column;
+      align-items:center; gap:0; width:100%;
+    }
+    .mobile-drawer ul li {
+      width:100%; text-align:center;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top:1px solid rgba(184,147,62,0.1); }
+    .mobile-drawer.open ul li { transform:translateY(0); opacity:1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay:0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay:0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay:0.20s; }
+    .mobile-drawer.open ul li:nth-child(4) { transition-delay:0.26s; }
+    .mobile-drawer ul li a {
+      display:block; padding:22px 40px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:300;
+      letter-spacing:0.06em;
+      color:rgba(247,240,230,0.7) !important;
+      text-decoration:none;
+      transition:color 0.2s;
+    }
+    .mobile-drawer ul li a:hover { color:var(--gold); }
+    .mobile-drawer ul li a.active {
+      color:var(--gold) !important;
+      background:rgba(184,147,62,0.08);
+      border-left:3px solid var(--gold);
+      padding-left:37px;
+    }
+    .mobile-drawer-cta {
+      margin-top:40px;
+      font-size:11px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--cream); background:var(--gold);
+      padding:16px 52px; text-decoration:none;
+      display:inline-block;
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease 0.34s,
+                 opacity 0.4s ease 0.34s,
+                 background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform:translateY(0); opacity:1; }
+    .mobile-drawer-cta:hover { background:var(--gold-pale); }
+    .mobile-drawer-city {
+      position:absolute; bottom:36px;
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.35);
+      transform:translateY(10px); opacity:0;
+      transition:transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform:translateY(0); opacity:1; }
+
+    /* HERO */
+    .how-hero {
+      position:relative;
+      min-height:88vh;
+      display:flex; flex-direction:column;
+      justify-content:flex-end;
+      padding:0 56px 80px;
+      overflow:hidden;
+      text-align:center;
+    }
+    .how-hero-img {
+      position:absolute; inset:0;
+      background-image:url('/assets/how-it-works-hero.jpg');
+      background-size:cover;
+      background-position:center;
+      z-index:0;
+      pointer-events:none;
+    }
+    .how-hero-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(
+        to top,
+        rgba(26,20,13,0.96) 0%,
+        rgba(26,20,13,0.65) 45%,
+        rgba(26,20,13,0.25) 100%
+      );
+      z-index:1;
+      pointer-events:none;
+    }
+    .how-hero-content {
+      position:relative; z-index:2;
+    }
+    .hero-vertical {
+      position:absolute; right:32px; top:50%;
+      transform:translateY(-50%) rotate(90deg);
+      font-size:8px; font-weight:400;
+      letter-spacing:0.45em; text-transform:uppercase;
+      color:rgba(184,147,62,0.4); z-index:4;
+      white-space:nowrap;
+      opacity:0; animation:fadeUp 1s ease 0.8s forwards;
+    }
+    .hero-eye {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.5em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:24px; position:relative;
+      display:inline-flex; align-items:center; gap:14px;
+      opacity:0; animation:fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero-eye::before {
+      content:''; width:32px; height:1px; background:var(--gold);
+    }
+    .hero-eye::after {
+      content:''; width:32px; height:1px; background:var(--gold);
+    }
+    .hero-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(56px,8vw,100px);
+      font-weight:300; color:var(--cream);
+      margin-bottom:22px; position:relative;
+      line-height:1.05; letter-spacing:-0.01em;
+      opacity:0; animation:fadeUp 0.9s ease 0.35s forwards;
+    }
+    .hero-title em { font-style:italic; color:var(--gold); }
+    .hero-sub {
+      font-size:15px; font-weight:300;
+      color:rgba(247,240,230,0.55);
+      max-width:500px; margin:0 auto;
+      line-height:1.8; position:relative;
+      opacity:0; animation:fadeUp 0.9s ease 0.5s forwards;
+    }
+
+    /* GUARANTEE STRIP */
+    .guarantee-strip {
+      display:grid; grid-template-columns:repeat(4,1fr); gap:2px;
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    }
+    .g-item {
+      padding:36px 28px; text-align:center;
+      border:1px solid var(--border); background:var(--dark-2);
+    }
+    .g-icon { margin-bottom:14px; display:block; margin-left:auto; margin-right:auto; }
+    .g-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:17px; font-weight:400;
+      color:var(--cream); margin-bottom:8px;
+    }
+    .g-body {
+      font-size:15px; font-weight:300;
+      line-height:1.7; color:var(--text-dim); letter-spacing:0.03em;
+    }
+
+    /* HOW SECTIONS */
+    .how-section { max-width:1100px; margin:0 auto; padding:100px 56px; }
+    .how-block {
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:80px; align-items:center; margin-bottom:100px;
+    }
+    .how-block.reverse { direction:rtl; }
+    .how-block.reverse > * { direction:ltr; }
+    .how-label {
+      font-size:11px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:14px;
+    }
+    .how-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(34px,4vw,52px);
+      font-weight:300; color:var(--cream);
+      margin-bottom:18px; line-height:1.15;
+    }
+    .how-title em { font-style:italic; color:var(--gold); }
+    .how-body {
+      font-size:15px; font-weight:300;
+      line-height:1.85; color:rgba(247,240,230,0.65); margin-bottom:32px;
+    }
+    .how-steps { display:flex; flex-direction:column; }
+    .how-step {
+      display:flex; gap:18px; padding:18px 0;
+      border-bottom:1px solid rgba(184,147,62,0.12);
+      align-items:flex-start;
+    }
+    .how-step:last-child { border-bottom:none; }
+    .step-num {
+      font-family:'Cormorant Garamond',serif;
+      font-size:12px; font-weight:500;
+      color:var(--gold); opacity:0.55;
+      flex-shrink:0; padding-top:3px;
+    }
+    .step-title {
+      font-size:13px; font-weight:500;
+      letter-spacing:0.04em; color:var(--cream); margin-bottom:4px;
+    }
+    .step-body {
+      font-size:15px; font-weight:300;
+      line-height:1.75; color:rgba(247,240,230,0.65);
+    }
+    .how-visual {
+      position:relative; overflow:hidden;
+      border:1px solid var(--border);
+    }
+    .how-visual img {
+      width:100%; height:100%; min-height:480px;
+      object-fit:cover; display:block;
+    }
+    .how-visual-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(26,20,13,0.3) 0%, transparent 50%);
+    }
+
+    /* BIG CTA */
+    .big-cta {
+      background:var(--dark); padding:100px 56px; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .big-cta::before {
+      content:''; position:absolute;
+      width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle, rgba(184,147,62,0.07) 0%, transparent 70%);
+      top:50%; left:50%; transform:translate(-50%,-50%);
+    }
+    .cta-eye {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.5em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:20px; position:relative;
+    }
+    .cta-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(40px,5vw,64px);
+      font-weight:300; line-height:1.1; color:var(--cream);
+      margin-bottom:18px; position:relative;
+    }
+    .cta-title em { font-style:italic; color:var(--gold); }
+    .cta-sub {
+      font-size:14px; font-weight:300;
+      color:rgba(247,240,230,0.5);
+      max-width:440px; margin:0 auto 40px;
+      line-height:1.8; position:relative;
+    }
+    .btn-gold {
+      font-size:10px; font-weight:500;
+      letter-spacing:0.35em; text-transform:uppercase;
+      color:var(--cream); background:var(--gold);
+      padding:16px 44px; border:none; cursor:pointer;
+      text-decoration:none; display:inline-block;
+      position:relative; transition:all 0.3s;
+    }
+    .btn-gold:hover { background:var(--gold-pale); transform:translateY(-2px); }
+
+    /* FOOTER */
+
+
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(16px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    @media (max-width:900px) {
+      nav { padding:18px 24px; }
+      .nav-hamburger { display:flex; }
+      .nav-links { display:none; }
+      .how-hero { padding:0 24px 60px; min-height:80vh; }
+      .hero-vertical { display:none; }
+      .guarantee-strip { grid-template-columns:1fr 1fr; }
+      .how-section { padding:60px 24px; }
+      .how-block { grid-template-columns:1fr; gap:40px; }
+      .how-block.reverse { direction:ltr; }
+      .how-visual img { min-height:280px; }
+      .big-cta { padding:72px 24px; }
+      .how-hero-content { padding:0 8px; }
+      .hero-eye { font-size:8px; gap:10px; }
+      .guarantee-strip { grid-template-columns:1fr; }
+      .how-steps { gap:32px; }
+      .step { padding:24px; }
+      .cta-title { font-size:clamp(32px,9vw,48px); }
+    }
+
+    footer {
+      background:var(--dark-2);
+      border-top:2px solid rgba(184,147,62,0.25);
+      padding:64px 56px 40px;
+    }
+    .footer-top {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:56px; padding-bottom:48px;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      margin-bottom:36px;
+    }
+    .footer-brand-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px; font-weight:300;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); margin-bottom:14px;
+    }
+    .footer-brand-name span { color:var(--gold); }
+    .footer-tagline {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0;
+      line-height:1.7; max-width:220px;
+      letter-spacing:0.04em;
+    }
+    .footer-col-title {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+    }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0; text-decoration:none;
+      transition:color 0.3s; letter-spacing:0.04em;
+    }
+    .footer-links a:hover { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    .footer-bottom {
+      display:flex; justify-content:center; align-items:center; gap:32px;
+    }
+    .footer-copy {
+      font-size:10px; font-weight:300;
+      color:#a0a0a0; letter-spacing:0.12em;
+    }
+    .footer-city {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.55);
+    }
+    .footer-insta {
+      display:inline-flex; align-items:center;
+      font-size:11px; font-weight:300;
+      letter-spacing:0.12em;
+      color:#D0D0D0;
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-insta:hover { color:var(--gold); }
+    @media (max-width:900px) {
+      .footer-top { grid-template-columns:1fr 1fr; gap:36px; }
+      footer { padding:48px 24px 32px; }
+    }
+  </style>
+  <link rel="stylesheet" href="/brand-refresh.css" />
+  <!-- Meta Pixel Base Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1040673992145213');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1040673992145213&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Base Code -->
+</head>
+<body>
+
+    <nav>
+    <a href="/" class="nav-brand"><img src="/assets/maahu-logo-nav-light.png" alt="Maahu" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works" class="active">How It Works</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works" class="active">How It Works</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/join" class="mobile-drawer-cta">Join the Founding Squad</a>
+    <div class="mobile-drawer-city">Mumbai · Est. 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <div class="how-hero">
+    <div class="how-hero-img"></div>
+    <div class="how-hero-overlay"></div>
+    <div class="hero-vertical">Lend · Borrow · Rewear · Mumbai · Maahu</div>
+    <div class="how-hero-content">
+      <div class="hero-eye">The Experience</div>
+      <h1 class="hero-title">Lend What You Love.<br>Borrow What You <em>Need.</em></h1>
+      <p class="hero-sub">Two sides of one community. Lend what you love. Borrow what you need. Built on trust, not transactions.</p>
+    </div>
+  </div>
+
+  <!-- GUARANTEE STRIP -->
+  <div class="guarantee-strip">
+    <div class="g-item">
+      <svg class="g-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 2L4 7v9c0 6.63 5.14 12.85 12 14.93C22.86 28.85 28 22.63 28 16V7L16 2z" stroke="#b8933e" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+        <path d="M11 16l3.5 3.5L21 12" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="g-title">Verified Community</div>
+      <div class="g-body">Every member is ID-verified. Anonymous strangers don't get in.</div>
+    </div>
+    <div class="g-item">
+      <svg class="g-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect x="5" y="7" width="22" height="18" rx="1" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <path d="M5 13h22" stroke="#b8933e" stroke-width="1.2"/>
+        <path d="M10 19h5M10 23h8" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <div class="g-title">Agreed Terms</div>
+      <div class="g-body">Every exchange has clear terms set before anything changes hands.</div>
+    </div>
+    <div class="g-item">
+      <svg class="g-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <circle cx="16" cy="16" r="11" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <circle cx="16" cy="12" r="3" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <path d="M9 24c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="g-title">Community Accountability</div>
+      <div class="g-body">Reputation is the collateral. 98% SHG model. It works.</div>
+    </div>
+    <div class="g-item">
+      <svg class="g-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M16 6c-3 0-6 2-6 5 0 4 6 10 6 10s6-6 6-10c0-3-3-5-6-5z" stroke="#b8933e" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+        <circle cx="16" cy="11" r="2" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <path d="M8 24c0 0 2-3 8-3s8 3 8 3" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="g-title">Women-Only</div>
+      <div class="g-body">Shared understanding of Indian clothing — its value, its care.</div>
+    </div>
+  </div>
+
+  <div class="how-section">
+
+    <!-- FOR LENDERS -->
+    <div class="how-block">
+      <div>
+        <div class="how-label">For Lenders</div>
+        <h2 class="how-title">Put Your Wardrobe <em>to Work</em></h2>
+        <p class="how-body">Your heritage pieces, your designer staples, your occasion wear — they shouldn't sit folded and idle between events. Maahu lets you lend what you love to women who will treat it the way you would.</p>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div>
+              <div class="step-title">List Your Pieces</div>
+              <div class="step-body">Add your pieces with photos and care notes. You decide what goes in, at what terms, for which occasions.</div>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div>
+              <div class="step-title">Approve Requests</div>
+              <div class="step-body">See the borrower's community profile and track record before every exchange. You approve or decline. Always.</div>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div>
+              <div class="step-title">Receive Back — Every Step Verified.</div>
+              <div class="step-body">Community accountability means your piece comes back in the condition it left — the same principle that drives 98% SHG repayment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="how-visual">
+        <img src="/assets/lend-your-wardrobe.jpg" alt="Lend your wardrobe" />
+        <div class="how-visual-overlay"></div>
+      </div>
+    </div>
+
+    <!-- FOR BORROWERS -->
+    <div class="how-block reverse">
+      <div>
+        <div class="how-label">For Borrowers</div>
+        <h2 class="how-title">Access Wardrobes You've <em>Been Admiring</em></h2>
+        <p class="how-body">The pieces you've been eyeing — in your circle, in your city — without adding another barely-worn item to your own cupboard. Borrow for a wedding. For a work trip. For a night you'll remember.</p>
+        <div class="how-steps">
+          <div class="how-step">
+            <div class="step-num">01</div>
+            <div>
+              <div class="step-title">Browse the Community</div>
+              <div class="step-body">Filter by occasion, size, neighbourhood. See real pieces from real women — with care notes, wear history, and community reviews.</div>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">02</div>
+            <div>
+              <div class="step-title">Request Your Dates</div>
+              <div class="step-body">Pick your dates, agree the terms, and connect with the lender. The platform holds the terms so the relationship stays clean.</div>
+            </div>
+          </div>
+          <div class="how-step">
+            <div class="step-num">03</div>
+            <div>
+              <div class="step-title">Wear. Return. Repeat.</div>
+              <div class="step-body">Wear it, love it, return it as you received it. Build your community reputation with every exchange. It compounds.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="how-visual">
+        <img src="/assets/borrow-from-community.jpg" alt="Borrow from the community" />
+        <div class="how-visual-overlay"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="how-section" style="border-top:1px solid rgba(184,147,62,0.18);">
+    <div class="how-block" style="grid-template-columns:1fr;max-width:760px;margin:0 auto;text-align:center;">
+      <div>
+        <div class="how-label" style="justify-content:center;">Built on Trust</div>
+        <h2 class="how-title">What If Something <em>Goes Wrong?</em></h2>
+        <p class="section-body" style="margin-top:24px;">Every exchange is designed to protect both sides. Lending is backed by a refundable security deposit, held safely until your piece comes home. Handovers are documented by both people, so there's a clear record if a question ever comes up. And if there's ever a disagreement, Maahu's team steps in to review and help resolve it — you're never left to sort it out alone.</p>
+        <p class="section-body" style="margin-top:16px;font-size:13px;color:var(--text-mid);">Full deposit, protection and resolution details will be shared with founding members before the first exchange.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="big-cta">
+    <div class="cta-eye">Mumbai · Founding Squad · 2026</div>
+    <h2 class="cta-title">Ready to Meet<br>Your <em>Community?</em></h2>
+    <p class="cta-sub">The founding Mumbai squad is forming now. Join the women who are building this community from the ground up.</p>
+    <a href="/join" class="btn-gold">Join the Founding Squad</a>
+  </div>
+
+    <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Maahu<span>.</span></div>
+        <div class="footer-tagline">India's first community wardrobe. Wear more. Own less. Trust more.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/join">Join the Founding Squad</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Journal</div>
+        <ul class="footer-links">
+          <li><a href="/blog">Closet Finance</a></li>
+          <li><a href="/blog/closet-audit-mumbai">The Mumbai Audit</a></li>
+          <li><a href="/blog/outfit-repeat-stigma-india">The Fear Tax</a></li>
+          <li><a href="/blog/bali-packing-list-indian-women">Bali Packing Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/join">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Maahu AI Digital Private Limited · maahu.ai 🧡</div>
+      <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="footer-insta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@maahu.ai
+      </a>
+      <div class="footer-city">Launching Mumbai · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      if (!btn || !drawer) return;
+      function openMenu() {
+        drawer.style.display = 'flex';
+        requestAnimationFrame(function() {
+          drawer.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      function closeMenu() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+        setTimeout(function(){ drawer.style.display='none'; }, 420);
+      }
+      btn.addEventListener('click', function() {
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeMenu();
+      });
+      drawer.querySelectorAll('.how-card, .g-item, .step, .guarantee-item').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+</body>
+</html>

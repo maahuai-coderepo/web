@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Maahu — Rent Designer Lehengas, Sarees & Occasion Wear in Mumbai</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maahu is India's first women-only community wardrobe. Rent verified designer lehengas, sarees & occasion wear in Mumbai, or lend your own — safely, with deposits and verified handovers." />
+  <link rel="canonical" href="https://maahu.ai/" />
+  <meta property="og:title" content="Maahu — Rent Designer Lehengas, Sarees & Occasion Wear in Mumbai" />
+  <meta property="og:description" content="Maahu is India's first women-only community wardrobe. Rent verified designer lehengas, sarees & occasion wear in Mumbai, or lend your own — safely, with deposits and verified handovers." />
+  <meta property="og:url" content="https://maahu.ai/" />
+  <meta property="og:image" content="https://maahu.ai/assets/mainpage-hero.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <style>
+    :root {
+      --cream:       #f7f0e6;
+      --cream-2:     #ede4d6;
+      --cream-3:     #e4d8c6;
+      --gold:        #b8933e;
+      --gold-light:  #d4ae6a;
+      --gold-pale:   #e8d5a8;
+      --gold-faint:  rgba(184,147,62,0.12);
+      --dark:        #1a140d;
+      --dark-2:      #241c12;
+      --dark-3:      #2e2418;
+      --text:        #f7f0e6;
+      --text-mid:    rgba(247,240,230,0.65);
+      --text-dim:    rgba(247,240,230,0.4);
+      --border:      rgba(184,147,62,0.2);
+      --border-2:    rgba(184,147,62,0.1);
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background: var(--dark);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    body::after {
+      content:'';
+      position:fixed; inset:0;
+      opacity:0.025;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size:200px;
+      pointer-events:none; z-index:1; touch-action:none;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:200;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:20px 56px;
+      background:rgba(26,20,13,0.97);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      transition:all 0.3s ease;
+    }
+    .nav-brand {
+      font-family:'Cormorant Garamond',serif;
+      font-size:21px; font-weight:400;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); text-decoration:none;
+    }
+    .nav-brand span { color:var(--gold); }
+    .nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+    .nav-links a {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.28em; text-transform:uppercase;
+      color:rgba(247,240,230,0.5); text-decoration:none;
+      transition:color 0.3s;
+      position:relative; padding-bottom:2px;
+    }
+    .nav-links a::after {
+      content:''; position:absolute; bottom:-2px; left:0;
+      width:0; height:1px; background:var(--gold);
+      transition:width 0.3s ease;
+    }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-links a.active { color:var(--gold); }
+    .nav-links a.active::after { width:100%; }
+    .nav-cta {
+      font-size:10px !important; font-weight:500 !important;
+      letter-spacing:0.3em !important;
+      color:var(--cream) !important;
+      background:var(--gold);
+      padding:11px 24px !important;
+      transition:background 0.3s ease !important;
+    }
+    .nav-cta::after { display:none !important; }
+    .nav-cta:hover { background:var(--dark) !important; color:var(--cream) !important; }
+
+    /* ── HAMBURGER ── */
+    .nav-hamburger {
+      display:none;
+      flex-direction:column; justify-content:center;
+      gap:5px; cursor:pointer; padding:6px;
+      background:none; border:none; z-index:210;
+      -webkit-tap-highlight-color:transparent;
+      touch-action:manipulation; cursor:pointer;
+    }
+    .nav-hamburger span {
+      display:block; width:22px; height:1.5px;
+      background:var(--cream);
+      transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                 opacity 0.3s ease, width 0.3s ease;
+      transform-origin:center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); background:var(--gold-pale); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; width:0; }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); background:var(--gold-pale); }
+
+    /* ── MOBILE DRAWER ── */
+    .mobile-drawer {
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      z-index:205;
+      flex-direction:column;
+      justify-content:center; align-items:center;
+      background:rgba(26,20,13,0.97) !important;
+      backdrop-filter:blur(24px);
+      opacity:0;
+      pointer-events:none;
+      transition:opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity:1; pointer-events:all; }
+    .mobile-drawer ul {
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column;
+      align-items:center; gap:0; width:100%;
+    }
+    .mobile-drawer ul li {
+      width:100%; text-align:center;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top:1px solid rgba(184,147,62,0.1); }
+    .mobile-drawer.open ul li { transform:translateY(0); opacity:1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay:0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay:0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay:0.20s; }
+    .mobile-drawer.open ul li:nth-child(4) { transition-delay:0.26s; }
+    .mobile-drawer ul li a {
+      display:block; padding:22px 40px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:300;
+      letter-spacing:0.06em;
+      color:rgba(247,240,230,0.7) !important;
+      text-decoration:none;
+      transition:color 0.2s;
+    }
+    .mobile-drawer ul li a:hover { color:var(--gold); }
+    .mobile-drawer ul li a.active {
+      color:var(--gold) !important;
+      background:rgba(184,147,62,0.08);
+      border-left:3px solid var(--gold);
+      padding-left:37px;
+    }
+    .mobile-drawer-cta {
+      margin-top:40px;
+      font-size:11px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--cream); background:var(--gold);
+      padding:16px 52px; text-decoration:none;
+      display:inline-block;
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease 0.34s,
+                 opacity 0.4s ease 0.34s,
+                 background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform:translateY(0); opacity:1; }
+    .mobile-drawer-cta:hover { background:var(--gold-pale); }
+    .mobile-drawer-city {
+      position:absolute; bottom:36px;
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.35);
+      transform:translateY(10px); opacity:0;
+      transition:transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform:translateY(0); opacity:1; }
+
+    /* ── HERO ── */
+    .hero {
+      position:relative;
+      min-height:100vh;
+      display:flex; flex-direction:column;
+      justify-content:flex-end;
+      padding:80px 56px 80px;
+      overflow:hidden;
+    }
+    .hero-bg-img {
+      position:absolute; inset:0;
+      background-image:url('/assets/mainpage-hero.jpg');
+      background-size:cover; background-position:center;
+      z-index:0;
+    }
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to top, rgba(10,7,4,0.92) 0%, rgba(10,7,4,0.55) 40%, rgba(10,7,4,0.2) 100%),
+        linear-gradient(to right, rgba(10,7,4,0.5) 0%, transparent 60%);
+      z-index:1;
+    }
+    .hero-vertical {
+      position:absolute; right:32px; top:50%;
+      transform:translateY(-50%) rotate(90deg);
+      font-size:8px; font-weight:400;
+      letter-spacing:0.45em; text-transform:uppercase;
+      color:rgba(184,147,62,0.4); z-index:3;
+      white-space:nowrap;
+    }
+    .hero-left {
+      position:relative; z-index:2;
+      max-width:780px;
+    }
+    .hero-eyebrow {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.5em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:28px;
+      display:flex; align-items:center; gap:12px;
+      opacity:0; animation:fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero-eyebrow::before { content:''; width:32px; height:1px; background:var(--gold); }
+    .hero-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(56px,8vw,100px);
+      font-weight:300; line-height:0.98;
+      letter-spacing:-0.02em; color:var(--cream);
+      margin-bottom:28px;
+      opacity:0; animation:fadeUp 0.9s ease 0.35s forwards;
+    }
+    .hero-title em { font-style:italic; color:var(--gold); }
+    .hero-subtitle {
+      font-size:15px; font-weight:300;
+      line-height:1.8; color:rgba(247,240,230,0.72);
+      max-width:480px; margin-bottom:44px;
+      letter-spacing:0.02em;
+      opacity:0; animation:fadeUp 0.9s ease 0.5s forwards;
+    }
+    .hero-actions {
+      display:flex; align-items:center; gap:20px; flex-wrap:wrap;
+      opacity:0; animation:fadeUp 0.9s ease 0.65s forwards;
+    }
+    .btn-primary {
+      font-size:10px; font-weight:500;
+      letter-spacing:0.35em; text-transform:uppercase;
+      color:var(--cream); background:var(--gold);
+      padding:16px 36px; border:none; cursor:pointer;
+      text-decoration:none; display:inline-block;
+      transition:background 0.3s, transform 0.2s;
+      min-height:44px;
+    }
+    .btn-primary:hover { background:var(--gold-pale); transform:translateY(-1px); }
+    .btn-secondary {
+      font-size:10px; font-weight:400;
+      letter-spacing:0.3em; text-transform:uppercase;
+      color:rgba(247,240,230,0.6); background:transparent;
+      border:1px solid rgba(184,147,62,0.3);
+      padding:15px 28px; cursor:pointer;
+      text-decoration:none; display:inline-block;
+      transition:all 0.3s;
+    }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-stats {
+      display:flex; gap:48px;
+      margin-top:56px; padding-top:36px;
+      border-top:1px solid rgba(184,147,62,0.2);
+      opacity:0; animation:fadeUp 0.9s ease 0.8s forwards;
+    }
+    .stat-num {
+      font-family:'Cormorant Garamond',serif;
+      font-size:32px; font-weight:300;
+      color:var(--cream); line-height:1; margin-bottom:4px;
+    }
+    .stat-label {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.3em; text-transform:uppercase;
+      color:rgba(247,240,230,0.5);
+    }
+    .hero-right { display:none; }
+
+    /* ── MARQUEE ── */
+    .marquee {
+      background:var(--dark); padding:16px 0;
+      overflow:hidden; white-space:nowrap;
+    }
+    .marquee-inner {
+      display:inline-flex;
+      animation:marquee 30s linear infinite;
+    }
+    .marquee-item {
+      font-size:10px; font-weight:400;
+      letter-spacing:0.35em; text-transform:uppercase;
+      color:var(--gold-pale);
+      padding:0 36px;
+      display:inline-flex; align-items:center; gap:36px;
+    }
+    .marquee-item::after { content:'◆'; font-size:5px; color:var(--gold); opacity:0.5; }
+    @keyframes marquee {
+      from { transform:translateX(0); }
+      to { transform:translateX(-50%); }
+    }
+
+    /* ── SECTION COMMONS ── */
+    .eyebrow {
+      font-size:11px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+      display:flex; align-items:center; gap:12px;
+    }
+    .eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+    .section-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(34px,4vw,52px);
+      font-weight:300; line-height:1.15; color:var(--cream);
+      margin-bottom:20px;
+    }
+    .section-title em { font-style:italic; color:var(--gold); }
+    .section-body {
+      font-size:15px; font-weight:300;
+      line-height:1.85; color:rgba(247,240,230,0.65); letter-spacing:0.01em; max-width:520px;
+    }
+
+    /* ── VALUE SECTION ── */
+    .value-section {
+      padding:120px 56px;
+      display:grid; grid-template-columns:1fr 1fr;
+      gap:80px; align-items:center;
+      max-width:1200px; margin:0 auto;
+          background:var(--dark);
+    }
+    .value-section .eyebrow { color:#b8933e; }
+    .value-section .section-title { color:#f7f0e6; }
+    .value-section .section-body { color:rgba(247,240,230,0.75); }
+    .value-cards { display:flex; flex-direction:column; gap:2px; }
+    .value-card {
+      background:var(--dark-2); border:1px solid var(--border);
+      padding:28px 32px;
+      display:flex; gap:20px; align-items:flex-start;
+      transition:background 0.3s;
+    }
+    .value-card:hover { background:var(--dark-3); border-left:2px solid var(--gold); }
+    .value-num {
+      font-family:'Cormorant Garamond',serif;
+      font-size:32px; font-weight:300;
+      color:var(--gold); opacity:0.35;
+      line-height:1; flex-shrink:0; width:36px;
+    }
+    .value-card-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:19px; font-weight:400;
+      color:var(--cream); margin-bottom:6px;
+    }
+    .value-card-body {
+      font-size:13px; font-weight:300;
+      line-height:1.75; color:rgba(247,240,230,0.65);
+    }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background:var(--dark-2);
+      padding:72px 56px;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:2px;
+    }
+    .trust-item { transition:border-top-color 0.3s;
+      padding:40px 44px;
+      border:1px solid rgba(184,147,62,0.12);
+      text-align:center;
+    }
+    .trust-svg { margin-bottom:20px; display:block; margin-left:auto; margin-right:auto; }
+    .trust-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px; font-weight:400; color:var(--cream); margin-bottom:10px;
+    }
+    .trust-body {
+      font-size:12px; font-weight:300;
+      line-height:1.75; color:rgba(247,240,230,0.45);
+      letter-spacing:0.03em;
+    }
+
+    /* ── OCCASIONS ── */
+    .occasion-section {
+      padding:130px 56px;
+      max-width:1200px; margin:0 auto;
+      background:var(--dark);
+    }
+    .occasion-header {
+      display:flex; justify-content:space-between;
+      align-items:flex-end; margin-bottom:56px;
+    }
+    .occasion-header .eyebrow { color:#b8933e; }
+    .occasion-header .section-title { color:#f7f0e6; }
+    .occasion-grid {
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr;
+      grid-template-rows:auto auto;
+      gap:3px;
+    }
+    .occ-card {
+      position:relative; overflow:hidden;
+      cursor:pointer;
+    }
+    .occ-card.featured { grid-row:span 2; }
+    .occ-img {
+      width:100%; height:100%;
+      object-fit:cover; display:block;
+      transition:transform 0.6s ease;
+    }
+    .occ-card.featured .occ-img { min-height:520px; }
+    .occ-card:not(.featured) .occ-img { height:260px; }
+    .occ-card:hover .occ-img { transform:scale(1.04); }
+    .occ-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(26,20,13,0.75) 0%, transparent 55%);
+      transition:background 0.3s;
+    }
+    .occ-card:hover .occ-overlay {
+      background:linear-gradient(to top, rgba(26,20,13,0.85) 0%, rgba(26,20,13,0.1) 55%);
+    }
+    .occ-text {
+      position:absolute; bottom:0; left:0; right:0;
+      padding:24px 28px;
+    }
+    .occ-tag {
+      font-size:8px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold-pale); margin-bottom:6px;
+    }
+    .occ-text { opacity:1; }
+    .occ-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:20px; font-weight:400;
+      color:var(--cream); line-height:1.2;
+    }
+    .occ-card.featured .occ-name { font-size:26px; }
+
+    /* ── BIG CTA ── */
+    .big-cta {
+      background:var(--dark);
+      padding:120px 56px; text-align:center;
+      position:relative; overflow:hidden;
+    }
+    .big-cta::before {
+      content:'';
+      position:absolute;
+      width:600px; height:600px; border-radius:50%;
+      background:radial-gradient(circle, rgba(184,147,62,0.07) 0%, transparent 70%);
+      top:50%; left:50%; transform:translate(-50%,-50%);
+    }
+    .big-cta-eye {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.5em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:22px; position:relative;
+    }
+    .big-cta-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(42px,6vw,70px);
+      font-weight:300; line-height:1.1; color:var(--cream);
+      margin-bottom:20px; position:relative;
+    }
+    .big-cta-title em { font-style:italic; color:var(--gold); }
+    .big-cta-sub {
+      font-size:14px; font-weight:300;
+      color:rgba(247,240,230,0.65);
+      max-width:460px; margin:0 auto 44px;
+      line-height:1.8; letter-spacing:0.02em; position:relative;
+    }
+    .btn-gold {
+      font-size:10px; font-weight:500;
+      letter-spacing:0.35em; text-transform:uppercase;
+      color:var(--cream); background:var(--gold);
+      padding:18px 48px; border:none; cursor:pointer;
+      text-decoration:none; display:inline-block;
+      position:relative; transition:all 0.3s;
+    }
+    .btn-gold:hover { background:var(--gold-pale); transform:translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background:var(--dark-2);
+      border-top:2px solid rgba(184,147,62,0.25);
+      padding:64px 56px 40px;
+    }
+    .footer-top {
+      display:grid; grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:56px; padding-bottom:48px;
+      border-bottom:1px solid rgba(184,147,62,0.1);
+      margin-bottom:36px;
+    }
+    .footer-brand-name {
+      font-family:'Cormorant Garamond',serif;
+      font-size:22px; font-weight:300;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream); margin-bottom:14px;
+    }
+    .footer-brand-name span { color:var(--gold); }
+    .footer-tagline {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0;
+      line-height:1.7; max-width:220px;
+      letter-spacing:0.04em;
+    }
+    .footer-col-title {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:18px;
+    }
+    .footer-links { list-style:none; display:flex; flex-direction:column; gap:10px; }
+    .footer-links a {
+      font-size:12px; font-weight:300;
+      color:#D0D0D0; text-decoration:none;
+      transition:color 0.3s; letter-spacing:0.04em;
+    }
+    .footer-links a:hover { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    .footer-bottom {
+      display:flex; justify-content:center; align-items:center; gap:32px;
+    }
+    .footer-copy {
+      font-size:10px; font-weight:300;
+      color:#a0a0a0; letter-spacing:0.12em;
+    }
+
+    .footer-insta {
+      display:inline-flex; align-items:center;
+      font-size:11px; font-weight:300;
+      letter-spacing:0.12em;
+      color:#D0D0D0;
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-insta:hover { color:var(--gold); }
+    .footer-city {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(184,147,62,0.55);
+    }
+
+
+    /* ── SCROLL TO TOP ── */
+    .scroll-top {
+      position:fixed; bottom:32px; right:32px;
+      width:44px; height:44px;
+      background:var(--dark); border:1px solid rgba(184,147,62,0.3);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; z-index:90;
+      opacity:0; transform:translateY(12px);
+      transition:opacity 0.4s ease, transform 0.4s ease,
+                 background 0.3s, border-color 0.3s;
+      pointer-events:none;
+    }
+    .scroll-top.visible {
+      opacity:1; transform:translateY(0);
+      pointer-events:all;
+    }
+    .scroll-top:hover {
+      background:var(--gold);
+      border-color:var(--gold);
+    }
+    .scroll-top svg { transition:transform 0.2s ease; }
+    .scroll-top:hover svg { transform:translateY(-2px); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width:900px) {
+      nav { padding:18px 24px; }
+      .nav-hamburger { display:flex; }
+      .nav-links { display:none; }
+      .hero { padding:90px 24px 60px; min-height:100svh; }
+      .hero-left { max-width:100%; }
+      .hero-title { font-size:clamp(36px,9.5vw,52px); line-height:1.05; }
+      .value-section { grid-template-columns:1fr; padding:60px 24px; gap:40px; }
+      .section-body { font-size:15px; line-height:1.8; }
+      .trust-bar { grid-template-columns:1fr; padding:40px 24px; }
+      .occasion-section { padding:60px 24px; }
+      .occasion-grid { grid-template-columns:1fr; }
+      .occ-card.featured { grid-row:span 1; }
+      .occ-card.featured .occ-img { min-height:340px; }
+      .occ-overlay { background:linear-gradient(to top, rgba(26,20,13,0.88) 0%, rgba(26,20,13,0.2) 60%) !important; }
+      .occ-text { opacity:1 !important; }
+      .occ-overlay { background:linear-gradient(to top, rgba(26,20,13,0.88) 0%, rgba(26,20,13,0.2) 60%) !important; }
+      .occ-text { opacity:1 !important; }
+      .big-cta { padding:80px 24px; }
+      .footer-top { grid-template-columns:1fr 1fr; gap:36px; }
+      footer { padding:48px 24px 32px; }
+      .hero-actions { flex-direction:column; align-items:center; gap:12px; }
+      .btn-primary, .btn-secondary { width:100%; max-width:320px; text-align:center; }
+      .hero-stats { flex-wrap:wrap; gap:20px; }
+      .stat-num { font-size:26px; }
+      .trust-bar { grid-template-columns:1fr; }
+      .occasion-grid { grid-template-columns:1fr; }
+      .big-cta-title { font-size:clamp(36px,9vw,52px); }
+    }
+  </style>
+  <link rel="stylesheet" href="/brand-refresh.css" />
+  <!-- Meta Pixel Base Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1040673992145213');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1040673992145213&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Base Code -->
+</head>
+<body>
+
+    <nav>
+    <a href="/" class="nav-brand"><img src="/assets/maahu-logo-nav-light.png" alt="Maahu" class="nav-logo-img" /></a>
+    <ul class="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog">Journal</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/join" class="mobile-drawer-cta">Join the Founding Squad</a>
+    <div class="mobile-drawer-city">Mumbai · Est. 2026</div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-img"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-left">
+      <div class="hero-eyebrow">Mumbai · Est. 2026</div>
+      <h1 class="hero-title">
+        A Trusted Circle<br>for the Wardrobe<br>You <em>Already</em> Have.
+      </h1>
+      <p class="hero-subtitle">
+        Maahu is India's first community wardrobe — where urban Indian women lend, borrow, and rewear without judgment. Built on the same trust that drives India's 98% SHG repayment rate. Applied to wardrobes.
+      </p>
+      <p class="hero-seo-line" style="font-family:'Jost',sans-serif;font-size:14px;font-weight:400;color:var(--gold);letter-spacing:0.02em;margin-top:18px;max-width:600px;">
+        Rent designer lehengas, sarees &amp; occasion wear in Mumbai — from a circle of women you trust.
+      </p>
+      <div class="hero-actions">
+        <a href="/join" class="btn-primary">Join the Founding Squad</a>
+        <a href="/how-it-works" class="btn-secondary">How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">₹3L+</div>
+          <div class="stat-label">Avg wardrobe value</div>
+        </div>
+        <div>
+          <div class="stat-num">68%</div>
+          <div class="stat-label">Never worn again</div>
+        </div>
+        <div>
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Community trust rate</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <span class="marquee-item">Community Wardrobe</span>
+      <span class="marquee-item">Closet Finance</span>
+      <span class="marquee-item">Wear More · Own Less</span>
+      <span class="marquee-item">Mumbai First</span>
+      <span class="marquee-item">Indian Women · Indian Wardrobes</span>
+      <span class="marquee-item">Lend · Borrow · Rewear</span>
+      <span class="marquee-item">Community Wardrobe</span>
+      <span class="marquee-item">Closet Finance</span>
+      <span class="marquee-item">Wear More · Own Less</span>
+      <span class="marquee-item">Mumbai First</span>
+      <span class="marquee-item">Indian Women · Indian Wardrobes</span>
+      <span class="marquee-item">Lend · Borrow · Rewear</span>
+    </div>
+  </div>
+
+  <!-- VALUE -->
+  <div class="value-section">
+    <div>
+      <div class="eyebrow">The Problem</div>
+      <h2 class="section-title">₹2–5 Lakh Sitting <em>Folded.</em> Doing Nothing.</h2>
+      <p class="section-body">The average urban Indian woman's wardrobe is worth between ₹2 and ₹5 lakh. Most of it is worn once — or never. Heritage sarees that should be circulating. Designer pieces gathering dust. Occasion wear bought in panic, abandoned after one function.<br><br>Maahu changes the equation. Your wardrobe becomes something worth sharing — pieces you no longer reach for finding a second life with someone who'll love them, in a circle you trust.</p>
+    </div>
+    <div class="value-cards">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <div>
+          <div class="value-card-title">Audit Your Wardrobe</div>
+          <div class="value-card-body">Know exactly what you own, what it's worth, and what your cost-per-wear is on every piece. Your closet has a number. Maahu helps you find it.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <div>
+          <div class="value-card-title">Lend What You Love</div>
+          <div class="value-card-body">Your best pieces don't need to sit unworn between occasions. List them in the community and let them earn their place — in someone else's most important moments.</div>
+        </div>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <div>
+          <div class="value-card-title">Borrow Without Buying</div>
+          <div class="value-card-body">Access wardrobes you've been admiring. For a wedding, a work event, a trip — without adding another once-worn piece to your own cupboard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="trust-bar">
+    <div class="trust-item">
+      <svg class="trust-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 3L6 8v10c0 7.18 5.16 13.9 12 15.93C24.84 31.9 30 25.18 30 18V8L18 3z" stroke="#b8933e" stroke-width="1.2" fill="none" stroke-linejoin="round"/>
+        <path d="M13 18l3.5 3.5L23 14" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="trust-title">Verified Members</div>
+      <div class="trust-body">Every Maahu member is verified. Community accountability — not anonymous strangers. The same model that drives India's 98% SHG repayment rate.</div>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="8" width="24" height="20" rx="1" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <path d="M6 14h24" stroke="#b8933e" stroke-width="1.2"/>
+        <path d="M12 20h5M12 24h8" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <div class="trust-title">Agreed Terms</div>
+      <div class="trust-body">Every exchange has agreed terms upfront. Value, care, and what happens if something is damaged — all settled before anything changes hands.</div>
+    </div>
+    <div class="trust-item">
+      <svg class="trust-svg" width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="12" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <circle cx="18" cy="14" r="3.5" stroke="#b8933e" stroke-width="1.2" fill="none"/>
+        <path d="M10 26c0-4.42 3.58-8 8-8s8 3.58 8 8" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+      </svg>
+      <div class="trust-title">Women-Only Community</div>
+      <div class="trust-body">Curated, invite-led. Every member shares the same relationship with Indian clothing — its value, its care, what it means to be trusted with something precious.</div>
+    </div>
+  </div>
+
+  <!-- OCCASIONS -->
+  <section class="occasion-section">
+    <div class="occasion-header">
+      <div>
+        <div class="eyebrow">The Wardrobe</div>
+        <h2 class="section-title">Dressed for <em>Every</em> Moment</h2>
+      </div>
+     </div>
+    <div class="occasion-grid">
+      <div class="occ-card featured">
+        <img src="/assets/occasion-wedding.jpg" alt="Wedding collection" class="occ-img" />
+        <div class="occ-overlay"></div>
+        <div class="occ-text">
+          <div class="occ-tag">Heritage Collection</div>
+          <div class="occ-name">The Wedding Atelier</div>
+        </div>
+      </div>
+      <div class="occ-card">
+        <img src="/assets/occasion-sangeet.jpg" alt="Sangeet collection" class="occ-img" />
+        <div class="occ-overlay"></div>
+        <div class="occ-text">
+          <div class="occ-tag">Occasion Dressing</div>
+          <div class="occ-name">Sangeet & Mehendi</div>
+        </div>
+      </div>
+      <div class="occ-card">
+        <img src="/assets/occasion-brunch.jpg" alt="Brunch collection" class="occ-img" />
+        <div class="occ-overlay"></div>
+        <div class="occ-text">
+          <div class="occ-tag">Work & Leisure</div>
+          <div class="occ-name">Sunday Brunches</div>
+        </div>
+      </div>
+      <div class="occ-card">
+        <img src="/assets/occasion-party.jpg" alt="Party collection" class="occ-img" />
+        <div class="occ-overlay"></div>
+        <div class="occ-text">
+          <div class="occ-tag">Evening</div>
+          <div class="occ-name">Parties & Noir Nights</div>
+        </div>
+      </div>
+      <div class="occ-card">
+        <img src="/assets/occasion-travel.jpg" alt="Travel collection" class="occ-img" />
+        <div class="occ-overlay"></div>
+        <div class="occ-text">
+          <div class="occ-tag">Travel</div>
+          <div class="occ-name">Destination Dressing</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG CTA -->
+  <div class="big-cta">
+    <div class="big-cta-eye">Mumbai · Founding Squad · 2026</div>
+    <h2 class="big-cta-title">100 Million Indian Women<br>Already Trust Each Other.<br><em>Join the Circle.</em></h2>
+    <p class="big-cta-sub">The founding Maahu Squad is Mumbai's first community wardrobe. The women who join now set the standard for how this community treats each other's things.</p>
+    <a href="/join" class="btn-gold">Join the Founding Squad</a>
+  </div>
+
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Maahu<span>.</span></div>
+        <div class="footer-tagline">India's first community wardrobe. Wear more. Own less. Trust more.</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/how-it-works">How It Works</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/join">Join the Founding Squad</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Journal</div>
+        <ul class="footer-links">
+          <li><a href="/blog">Closet Finance</a></li>
+          <li><a href="/blog/closet-audit-mumbai">The Mumbai Audit</a></li>
+          <li><a href="/blog/outfit-repeat-stigma-india">The Fear Tax</a></li>
+          <li><a href="/blog/bali-packing-list-indian-women">Bali Packing Audit</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="/about">Our Story</a></li>
+          <li><a href="/join">Get in Touch</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Maahu AI Digital Private Limited · maahu.ai 🧡</div>
+      <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="footer-insta">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@maahu.ai
+      </a>
+      <div class="footer-city">Launching Mumbai · 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    document.addEventListener('DOMContentLoaded', function() {
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.value-card, .trust-item, .occ-card').forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(16px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+      });
+    });
+
+    // Scroll to top
+    var scrollBtn = document.getElementById('scrollTop');
+    if (scrollBtn) {
+      window.addEventListener('scroll', function() {
+        scrollBtn.classList.toggle('visible', window.scrollY > 400);
+      });
+      scrollBtn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+  </script>
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      if (!btn || !drawer) return;
+      function openMenu() {
+        drawer.style.display = 'flex';
+        requestAnimationFrame(function() {
+          drawer.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      function closeMenu() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+        setTimeout(function(){ drawer.style.display='none'; }, 420);
+      }
+      btn.addEventListener('click', function() {
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeMenu();
+      });
+      drawer.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Back to top">
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+      <path d="M7 11V3M3 6.5l4-4 4 4" stroke="#b8933e" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</body>
+</html>

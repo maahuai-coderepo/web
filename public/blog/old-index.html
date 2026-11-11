@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Closet Finance — Maahu Journal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Maahu's blog on Indian fashion, wardrobe value, and closet finance. Real numbers. Real wardrobes." />
+  <link rel="canonical" href="https://maahu.ai/blog" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <style>
+    :root {
+      --cream: #f5ede0;
+      --cream-dim: rgba(245,237,224,0.6);
+      --cream-faint: rgba(245,237,224,0.08);
+      --gold: #c9a96e;
+      --gold-light: #e8cfa0;
+      --gold-faint: rgba(201,169,110,0.15);
+      --dark: #0e0b08;
+      --dark-mid: #1a1410;
+      --dark-card: #161109;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--dark);
+      color:var(--cream);
+      font-family:'Jost',sans-serif;
+      font-weight:300;
+      min-height:100vh;
+    }
+    body::before {
+      content:'';
+      position:fixed; inset:0; opacity:0.035;
+      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size:180px 180px;
+      pointer-events:none; z-index:0;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 56px;
+      background: rgba(26,20,13,0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(184,147,62,0.15);
+      transition: all 0.3s ease;
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #f7f0e6;
+      text-decoration: none;
+    }
+    .nav-brand span { color: #b8933e; }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(247,240,230,0.5);
+      text-decoration: none;
+      transition: color 0.3s;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px; background: #b8933e;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover { color: #b8933e; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #b8933e; }
+    .nav-links a.active::after { width: 100%; }
+    .nav-cta {
+      font-size: 10px !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.3em !important;
+      color: #1a140d !important;
+      background: #b8933e;
+      padding: 11px 24px !important;
+      transition: background 0.3s ease !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: #e8d5a8 !important; color: #1a140d !important; }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column; justify-content: center;
+      gap: 5px; cursor: pointer; padding: 6px;
+      background: none; border: none; z-index: 110;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: #f7f0e6;
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                  opacity 0.3s ease, width 0.3s ease;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); background: #e8d5a8; }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); background: #e8d5a8; }
+
+    /* ── Mobile Drawer ── */
+    .mobile-drawer {
+      display: none;
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 105;
+      flex-direction: column;
+      justify-content: center; align-items: center;
+      background: rgba(14,11,8,0.97);
+      backdrop-filter: blur(24px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity: 1; pointer-events: all; }
+    .mobile-drawer ul {
+      list-style: none; padding: 0; margin: 0;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 0; width: 100%;
+    }
+    .mobile-drawer ul li {
+      width: 100%; text-align: center;
+      border-bottom: 1px solid rgba(184,147,62,0.1);
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top: 1px solid rgba(184,147,62,0.1); }
+    .mobile-drawer.open ul li { transform: translateY(0); opacity: 1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay: 0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay: 0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay: 0.20s; }
+    .mobile-drawer.open ul li:nth-child(4) { transition-delay: 0.26s; }
+    .mobile-drawer ul li a {
+      display: block; padding: 22px 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 30px; font-weight: 300;
+      letter-spacing: 0.06em;
+      color: rgba(247,240,230,0.7);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .mobile-drawer ul li a:hover,
+    .mobile-drawer ul li a.active { color: #b8933e; }
+    .mobile-drawer-cta {
+      margin-top: 40px;
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: #1a140d; background: #b8933e;
+      padding: 16px 52px; text-decoration: none;
+      display: inline-block;
+      transform: translateY(20px); opacity: 0;
+      transition: transform 0.4s ease 0.34s, opacity 0.4s ease 0.34s, background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform: translateY(0); opacity: 1; }
+    .mobile-drawer-cta:hover { background: #e8d5a8; }
+    .mobile-drawer-city {
+      position: absolute; bottom: 36px;
+      font-size: 9px; font-weight: 400;
+      letter-spacing: 0.4em; text-transform: uppercase;
+      color: rgba(184,147,62,0.35);
+      transform: translateY(10px); opacity: 0;
+      transition: transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform: translateY(0); opacity: 1; }
+    .nav-links { display:flex; gap:36px; list-style:none; }
+    .nav-links a {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.28em; text-transform:uppercase;
+      color:var(--cream-dim); text-decoration:none;
+      transition:color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color:var(--gold); }
+
+    /* ── Hamburger ── */
+    .nav-hamburger {
+      display:none;
+      flex-direction:column; justify-content:center;
+      gap:5px; cursor:pointer; padding:6px;
+      background:none; border:none; z-index:110;
+    }
+    .nav-hamburger span {
+      display:block; width:22px; height:1.5px;
+      background:var(--cream);
+      transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),
+                 opacity 0.3s ease, width 0.3s ease;
+      transform-origin:center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform:translateY(6.5px) rotate(45deg); background:var(--gold); }
+    .nav-hamburger.open span:nth-child(2) { opacity:0; width:0; }
+    .nav-hamburger.open span:nth-child(3) { transform:translateY(-6.5px) rotate(-45deg); background:var(--gold); }
+
+    /* ── Mobile Drawer ── */
+    .mobile-drawer {
+      display:none;
+      position:fixed; top:0; left:0; right:0; bottom:0;
+      z-index:105;
+      flex-direction:column;
+      justify-content:center; align-items:center;
+      background:rgba(14,11,8,0.97);
+      backdrop-filter:blur(24px);
+      opacity:0; pointer-events:none;
+      transition:opacity 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+    .mobile-drawer.open { opacity:1; pointer-events:all; }
+    .mobile-drawer ul {
+      list-style:none; padding:0; margin:0;
+      display:flex; flex-direction:column;
+      align-items:center; gap:0; width:100%;
+    }
+    .mobile-drawer ul li {
+      width:100%; text-align:center;
+      border-bottom:1px solid rgba(201,169,110,0.1);
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease, opacity 0.4s ease;
+    }
+    .mobile-drawer ul li:first-child { border-top:1px solid rgba(201,169,110,0.1); }
+    .mobile-drawer.open ul li { transform:translateY(0); opacity:1; }
+    .mobile-drawer.open ul li:nth-child(1) { transition-delay:0.08s; }
+    .mobile-drawer.open ul li:nth-child(2) { transition-delay:0.14s; }
+    .mobile-drawer.open ul li:nth-child(3) { transition-delay:0.20s; }
+    .mobile-drawer ul li a {
+      display:block; padding:22px 40px;
+      font-family:'Cormorant Garamond',serif;
+      font-size:30px; font-weight:300;
+      letter-spacing:0.06em;
+      color:rgba(245,237,224,0.7);
+      text-decoration:none; transition:color 0.2s;
+    }
+    .mobile-drawer ul li a:hover,
+    .mobile-drawer ul li a.active { color:var(--gold); }
+    .mobile-drawer-cta {
+      margin-top:40px;
+      font-size:11px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--dark); background:var(--gold);
+      padding:16px 52px; text-decoration:none;
+      display:inline-block;
+      transform:translateY(20px); opacity:0;
+      transition:transform 0.4s ease 0.34s, opacity 0.4s ease 0.34s, background 0.3s;
+    }
+    .mobile-drawer.open .mobile-drawer-cta { transform:translateY(0); opacity:1; }
+    .mobile-drawer-cta:hover { background:var(--gold-light); }
+    .mobile-drawer-city {
+      position:absolute; bottom:36px;
+      font-size:9px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:rgba(201,169,110,0.35);
+      transform:translateY(10px); opacity:0;
+      transition:transform 0.4s ease 0.40s, opacity 0.4s ease 0.40s;
+    }
+    .mobile-drawer.open .mobile-drawer-city { transform:translateY(0); opacity:1; }
+
+    /* ── Hero ── */
+    .blog-hero {
+      position:relative;
+      padding:100px 48px 80px;
+      text-align:center;
+      overflow:hidden;
+    }
+    .blog-hero::after {
+      content:'';
+      position:absolute; bottom:0; left:50%;
+      transform:translateX(-50%);
+      width:1px; height:60px;
+      background:linear-gradient(to bottom, var(--gold), transparent);
+    }
+    .hero-eyebrow {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:20px;
+      opacity:0; animation:fadeUp 0.8s ease 0.2s forwards;
+    }
+    .hero-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(48px,7vw,80px);
+      font-weight:300; line-height:1.05;
+      letter-spacing:-0.01em; color:var(--cream);
+      margin-bottom:20px;
+      opacity:0; animation:fadeUp 0.9s ease 0.4s forwards;
+    }
+    .hero-title em { font-style:italic; color:var(--gold-light); }
+    .hero-sub {
+      font-size:14px; font-weight:300;
+      letter-spacing:0.05em; color:var(--cream-dim);
+      max-width:460px; margin:0 auto;
+      line-height:1.75;
+      opacity:0; animation:fadeUp 0.9s ease 0.6s forwards;
+    }
+
+    /* ── Articles Grid ── */
+    .articles-section {
+      position:relative; z-index:1;
+      max-width:1100px; margin:0 auto;
+      padding:80px 48px 120px;
+    }
+    .section-label {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:48px;
+      display:flex; align-items:center; gap:16px;
+    }
+    .section-label::after {
+      content:''; flex:1; height:1px;
+      background:rgba(201,169,110,0.2);
+    }
+    .articles-grid {
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:2px;
+    }
+
+    /* ── Featured post (full-bleed image) ── */
+    .post-featured {
+      grid-row:span 2;
+      position:relative;
+      overflow:hidden;
+      text-decoration:none; color:inherit;
+      min-height:560px;
+      display:flex; flex-direction:column;
+      justify-content:flex-end;
+      transition:border-color 0.4s ease;
+      border:1px solid rgba(201,169,110,0.1);
+    }
+    .post-featured:hover { border-color:rgba(201,169,110,0.35); }
+    .post-featured-img {
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      display:block;
+      transition:transform 0.7s ease;
+    }
+    .post-featured:hover .post-featured-img { transform:scale(1.04); }
+    .post-featured-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,
+        rgba(10,7,4,0.95) 0%,
+        rgba(10,7,4,0.6) 45%,
+        rgba(10,7,4,0.15) 100%);
+    }
+    .post-featured-content {
+      position:relative; z-index:2;
+      padding:52px 48px;
+    }
+
+    /* ── Small posts (image top) ── */
+    .post-small {
+      background:var(--dark-card);
+      border:1px solid rgba(201,169,110,0.1);
+      display:flex; flex-direction:column;
+      min-height:254px;
+      text-decoration:none; color:inherit;
+      overflow:hidden;
+      transition:border-color 0.4s ease;
+    }
+    .post-small:hover { border-color:rgba(201,169,110,0.35); }
+    .post-small.coming-soon {
+      opacity:0.45; cursor:default; pointer-events:none;
+    }
+    .post-thumb {
+      width:100%; height:160px;
+      object-fit:cover; object-position:center;
+      display:block;
+      transition:transform 0.6s ease;
+      flex-shrink:0;
+    }
+    .post-small:hover .post-thumb { transform:scale(1.04); }
+    .post-thumb-placeholder {
+      width:100%; height:160px;
+      background:var(--dark-mid);
+      flex-shrink:0;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .post-small-body {
+      padding:28px 28px 28px;
+      display:flex; flex-direction:column;
+      justify-content:space-between;
+      flex:1;
+    }
+
+    /* ── Post internals ── */
+    .post-series {
+      font-size:9px; font-weight:500;
+      letter-spacing:0.4em; text-transform:uppercase;
+      color:var(--gold); margin-bottom:14px;
+    }
+    .post-title {
+      font-family:'Cormorant Garamond',serif;
+      font-weight:400; line-height:1.18; color:var(--cream);
+    }
+    .post-featured-content .post-title {
+      font-size:clamp(26px,3.2vw,38px);
+      margin-bottom:18px;
+    }
+    .post-small-body .post-title {
+      font-size:20px; margin-bottom:10px;
+    }
+    .post-excerpt {
+      font-size:13px; font-weight:300;
+      line-height:1.75; color:var(--cream-dim);
+      margin-bottom:28px;
+    }
+    .post-meta {
+      display:flex; align-items:center; gap:14px;
+      margin-bottom:24px;
+    }
+    .post-author {
+      font-size:11px; font-weight:400;
+      letter-spacing:0.1em; color:var(--cream-dim);
+    }
+    .post-dot {
+      width:3px; height:3px; border-radius:50%;
+      background:var(--gold); opacity:0.5;
+    }
+    .post-date {
+      font-size:11px; font-weight:300;
+      letter-spacing:0.08em;
+      color:rgba(245,237,224,0.35);
+    }
+    .post-read-link {
+      display:inline-flex; align-items:center; gap:10px;
+      font-size:10px; font-weight:400;
+      letter-spacing:0.3em; text-transform:uppercase;
+      color:var(--gold); margin-top:auto;
+      transition:gap 0.3s ease;
+    }
+    .post-featured:hover .post-read-link,
+    .post-small:hover .post-read-link { gap:16px; }
+    .post-read-link::after { content:'→'; font-size:12px; }
+    .coming-label {
+      font-size:9px; font-weight:400;
+      letter-spacing:0.35em; text-transform:uppercase;
+      color:rgba(201,169,110,0.5);
+      border:1px solid rgba(201,169,110,0.2);
+      padding:6px 14px; border-radius:100px;
+      display:inline-block; margin-top:auto;
+    }
+
+    /* ── Waitlist Banner ── */
+    .waitlist-banner {
+      position:relative; z-index:1;
+      max-width:1004px; margin:0 auto 80px;
+      background:var(--gold-faint);
+      border:1px solid rgba(201,169,110,0.25);
+      padding:48px 56px;
+      display:flex; align-items:center;
+      justify-content:space-between; gap:40px;
+    }
+    .banner-text h3 {
+      font-family:'Cormorant Garamond',serif;
+      font-size:26px; font-weight:400;
+      color:var(--cream); margin-bottom:8px;
+    }
+    .banner-text p {
+      font-size:13px; font-weight:300;
+      color:var(--cream-dim); letter-spacing:0.06em;
+    }
+    .banner-cta {
+      flex-shrink:0; display:inline-block;
+      font-size:10px; font-weight:500;
+      letter-spacing:0.3em; text-transform:uppercase;
+      color:var(--dark); background:var(--gold);
+      padding:14px 32px; text-decoration:none;
+      transition:background 0.3s ease;
+    }
+    .banner-cta:hover { background:var(--gold-light); }
+
+    /* ── Footer ── */
+    .footer-insta-blog {
+      display:inline-flex; align-items:center;
+      font-size:11px; font-weight:300;
+      letter-spacing:0.1em;
+      color:var(--cream-dim);
+      text-decoration:none;
+      transition:color 0.3s;
+    }
+    .footer-insta-blog:hover { color:var(--gold); }
+    footer {
+      position:relative; z-index:1;
+      border-top:1px solid rgba(201,169,110,0.12);
+      padding:36px 48px;
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    .footer-brand {
+      font-family:'Cormorant Garamond',serif;
+      font-size:16px; font-weight:300;
+      letter-spacing:0.2em; text-transform:uppercase;
+      color:var(--cream-dim); text-decoration:none;
+    }
+    .footer-brand span { color:var(--gold); }
+    .footer-copy {
+      font-size:10px; font-weight:300;
+      letter-spacing:0.15em;
+      color:rgba(245,237,224,0.25);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(14px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width:768px) {
+      nav { padding:18px 24px; }
+      .nav-hamburger { display:flex; }
+      .nav-hamburger { display: flex; }
+      .nav-links { display: none; }
+      .blog-hero { padding:72px 24px 64px; }
+      .articles-section { padding:60px 24px 80px; }
+      .articles-grid { grid-template-columns:1fr; }
+      .post-featured { grid-row:span 1; min-height:420px; }
+      .post-featured-content { padding:32px 28px; }
+      .post-thumb { height:200px; }
+      .waitlist-banner { flex-direction:column; padding:36px 28px; text-align:center; }
+      footer { padding:28px 24px; flex-direction:column; gap:12px; text-align:center; }
+    }
+  </style>
+</head>
+<body>
+
+    <nav>
+    <a href="/" class="nav-brand">Maahu<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/join" class="nav-cta">Join the Squad</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="mobile-drawer" id="mobile-drawer" role="dialog" aria-modal="true">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/how-it-works">How It Works</a></li>
+      <li><a href="/blog" class="active">Journal</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+    <a href="/join" class="mobile-drawer-cta">Join the Founding Squad</a>
+    <div class="mobile-drawer-city">Mumbai · Est. 2026</div>
+  </div>
+  </div>
+
+  <header class="blog-hero">
+    <p class="hero-eyebrow">The Maahu Journal</p>
+    <h1 class="hero-title">Closet <em>Finance.</em></h1>
+    <p class="hero-sub">Real numbers from real Indian wardrobes. Because your cupboard is an asset — it's time to treat it like one.</p>
+  </header>
+
+  <main class="articles-section">
+    <div class="section-label">Latest Stories</div>
+
+    <div class="articles-grid">
+
+      <!-- Featured post — full bleed image -->
+      <a href="/blog/closet-audit-mumbai" class="post-featured">
+        <img
+          src="/assets/your-flatlay-photo.jpeg"
+          alt="Mumbai wardrobe audit flat-lay"
+          class="post-featured-img"
+          loading="lazy"
+        />
+        <div class="post-featured-overlay"></div>
+        <div class="post-featured-content">
+          <p class="post-series">Closet Finance · Issue 01</p>
+          <h2 class="post-title">I Audited My Mumbai Closet. It's Worth ₹3 Lakhs.</h2>
+          <p class="post-excerpt">Every lehenga. Every blazer bought for 'that next big interview.' Every impulse kurti from a Linking Road sale. The number that came back stopped me cold.</p>
+          <div class="post-meta">
+            <span class="post-author">Ritika</span>
+            <span class="post-dot"></span>
+            <span class="post-date">March 2026 · 7 min read</span>
+          </div>
+          <span class="post-read-link">Read story</span>
+        </div>
+      </a>
+
+      <!-- Small post 1 -->
+      <a href="/blog/bali-packing-list-indian-women" class="post-small">
+        <img
+          src="/assets/bali-trip-indian-woman-tegallalang-rice-terraces.jpg"
+          alt="Indian woman at Tegallalang rice terraces, Bali"
+          class="post-thumb"
+          loading="lazy"
+        />
+        <div class="post-small-body">
+          <div>
+            <p class="post-series">Closet Finance · Travel Edition</p>
+            <h2 class="post-title">The Most Expensive Thing I Wore in Bali Cost ₹299. The ₹4,500 Vacation Dress Stayed in the Suitcase.</h2>
+          </div>
+          <span class="post-read-link">Read story</span>
+        </div>
+      </a>
+
+      <!-- Small post 2 -->
+      <a href="/blog/indian-women-trust-wardrobe-sharing" class="post-small">
+        <img
+          src="/assets/women-wardrobe-sharing-community-india.jpg"
+          alt="Indian women wardrobe sharing community"
+          class="post-thumb"
+          loading="lazy"
+        />
+        <div class="post-small-body">
+          <div>
+            <p class="post-series">Closet Finance · Community</p>
+            <h2 class="post-title">Indian Women Trust Each Other With Money. Why Not Their Wardrobes?</h2>
+          </div>
+          <span class="post-read-link">Read story</span>
+        </div>
+      </a>
+
+      <!-- Small post 3 -->
+      <a href="/blog/outfit-repeat-stigma-india" class="post-small">
+        <img
+          src="/assets/outfit-repeat-hero.jpg"
+          alt="Outfit repeat stigma in India"
+          class="post-thumb"
+          loading="lazy"
+        />
+        <div class="post-small-body">
+          <div>
+            <p class="post-series">Closet Finance · Issue 06</p>
+            <h2 class="post-title">Outfit Repeat Stigma Is Costing Indian Women ₹43,000 a Year.</h2>
+          </div>
+          <span class="post-read-link">Read story</span>
+        </div>
+      </a>
+
+      <!-- Coming soon -->
+      <div class="post-small coming-soon">
+        <div class="post-thumb-placeholder"></div>
+        <div class="post-small-body">
+          <div>
+            <p class="post-series">The Maahu Method</p>
+            <h2 class="post-title">How to Build a Wardrobe Worth ₹1 Lakh That Actually Earns Its Keep</h2>
+          </div>
+          <span class="coming-label">Coming Soon</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <div class="waitlist-banner">
+    <div class="banner-text">
+      <h3>Your closet has a number too.</h3>
+      <p>Maahu is building the tool to help Indian women audit, track, and unlock what's already sitting in their cupboards.</p>
+    </div>
+    <a href="/join" class="banner-cta">Join the Maahu Squad</a>
+  </div>
+
+  <footer>
+    <a href="/" class="footer-brand">Maahu<span>.</span></a>
+    <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="footer-insta-blog">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@maahu.ai
+    </a>
+    <span class="footer-copy">© 2026 Maahu · maahu.ai</span>
+  </footer>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('hamburger');
+      var drawer = document.getElementById('mobile-drawer');
+      function openMenu() {
+        drawer.style.display = 'flex';
+        requestAnimationFrame(function() {
+          drawer.classList.add('open');
+          btn.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+      function closeMenu() {
+        drawer.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded','false');
+        document.body.style.overflow = '';
+        setTimeout(function(){ drawer.style.display='none'; }, 420);
+      }
+      btn.addEventListener('click', function() {
+        drawer.classList.contains('open') ? closeMenu() : openMenu();
+      });
+      drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) closeMenu();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeMenu();
+      });
+      drawer.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', closeMenu);
+      });
+    })();
+  </script>
+
+</body>
+</html>
