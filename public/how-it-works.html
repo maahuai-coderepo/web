@@ -182,18 +182,19 @@
     /* HERO */
     .how-hero {
       position:relative;
-      min-height:88vh;
+      min-height:92vh;
       display:flex; flex-direction:column;
       justify-content:flex-end;
-      padding:0 56px 80px;
+      padding:96px 56px 72px;
       overflow:hidden;
       text-align:center;
     }
     .how-hero-img {
-      position:absolute; inset:0;
+      position:absolute;
+      top:64px; left:0; right:0; bottom:0;
       background-image:url('/assets/how-it-works-hero.jpg');
       background-size:cover;
-      background-position:center;
+      background-position:center 12%;
       z-index:0;
       pointer-events:none;
     }
@@ -321,7 +322,7 @@
     }
     .how-visual img {
       width:100%; height:100%; min-height:480px;
-      object-fit:cover; display:block;
+      object-fit:cover; object-position:68% top; display:block;
     }
     .how-visual-overlay {
       position:absolute; inset:0;
@@ -482,7 +483,6 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/how-it-works" class="active">How It Works</a></li>
-      <li><a href="/technology">Technology</a></li>
       <li><a href="/blog">Journal</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
@@ -497,7 +497,6 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/how-it-works" class="active">How It Works</a></li>
-      <li><a href="/technology">Technology</a></li>
       <li><a href="/blog">Journal</a></li>
       <li><a href="/about">About</a></li>
     </ul>
@@ -542,8 +541,8 @@
         <circle cx="16" cy="12" r="3" stroke="#b8933e" stroke-width="1.2" fill="none"/>
         <path d="M9 24c0-3.87 3.13-7 7-7s7 3.13 7 7" stroke="#b8933e" stroke-width="1.2" stroke-linecap="round" fill="none"/>
       </svg>
-      <div class="g-title">Community Accountability</div>
-      <div class="g-body">Reputation is the collateral. 98% SHG model. It works.</div>
+      <div class="g-title">Pickup &amp; Return Proof</div>
+      <div class="g-body">Condition photos captured at handover and return inside your booking chat.</div>
     </div>
     <div class="g-item">
       <svg class="g-icon" width="32" height="32" viewBox="0 0 32 32" fill="none">
@@ -568,28 +567,28 @@
           <div class="how-step">
             <div class="step-num">01</div>
             <div>
-              <div class="step-title">Digitize With AI in Seconds</div>
-              <div class="step-body">Snap photos of your pieces in your Digital Closet. Maahu's multimodal AI identifies category, fabric, and occasion tags automatically, calculates cost-per-wear and wardrobe ROI, and pre-fills your listing in one tap.</div>
+              <div class="step-title">Add Your Closet in Seconds</div>
+              <div class="step-body">Snap photos of your pieces in your Digital Closet. Maahu tags category, fabric, and occasion automatically, shows your cost-per-wear, and lets you list any outfit in one tap.</div>
             </div>
           </div>
           <div class="how-step">
             <div class="step-num">02</div>
             <div>
               <div class="step-title">Approve Verified Requests</div>
-              <div class="step-body">Only Aadhaar Secure QR verified members can request a booking. Review the borrower's profile, dates, and transparent upfront terms — you approve or decline every request.</div>
+              <div class="step-body">Only Aadhaar QR verified women can request a booking. Review the borrower's community profile, dates, and upfront terms — you approve or decline every request.</div>
             </div>
           </div>
           <div class="how-step">
             <div class="step-num">03</div>
             <div>
-              <div class="step-title">Documented Handover &amp; Protected Return</div>
-              <div class="step-body">Both sides log condition photos at pickup and return inside a dedicated booking conversation. Once return is confirmed, deposits settle automatically and payouts route smoothly.</div>
+              <div class="step-title">Photo Handover &amp; Protected Return</div>
+              <div class="step-body">Both sides snap condition photos at pickup and return inside your booking chat. Once your piece comes home cleanly, deposits settle and payouts release smoothly.</div>
             </div>
           </div>
         </div>
       </div>
       <div class="how-visual">
-        <img src="/assets/lend-your-wardrobe.jpg" alt="Lend your wardrobe" />
+        <img src="/assets/closet-heritage-hero.jpg" alt="Lend your wardrobe" style="object-position:72% top;" />
         <div class="how-visual-overlay"></div>
       </div>
     </div>
@@ -605,21 +604,21 @@
             <div class="step-num">01</div>
             <div>
               <div class="step-title">Browse Circles &amp; Private Closets</div>
-              <div class="step-body">Filter by occasion, size, and Mumbai neighbourhood — or explore private closet lookbooks shared directly by friends. Ask Tara AI anytime about fit, alterations, or care rules.</div>
+              <div class="step-body">Filter by occasion, size, and Mumbai neighbourhood — or explore private closet lookbooks shared by friends. Ask Tara anytime about fit, temporary alterations, or care rules.</div>
             </div>
           </div>
           <div class="how-step">
             <div class="step-num">02</div>
             <div>
-              <div class="step-title">Verify Once &amp; Pay Transparently</div>
-              <div class="step-body">Verify once via UIDAI Aadhaar Secure QR. Pick your dates and see the full breakdown upfront — rental price, refundable security deposit, and transparent platform fee with zero hidden charges.</div>
+              <div class="step-title">Verify Once &amp; See Full Pricing Upfront</div>
+              <div class="step-body">Complete a quick one-time Aadhaar QR check. Pick your dates and see the full breakdown upfront — rental price, refundable security deposit, and transparent platform fee with no surprises.</div>
             </div>
           </div>
           <div class="how-step">
             <div class="step-num">03</div>
             <div>
               <div class="step-title">Wear. Return. Auto-Refund.</div>
-              <div class="step-body">Capture handover and return condition photos right inside your booking thread. Once the piece is returned cleanly, undisputed deposits refund automatically and your community trust score grows.</div>
+              <div class="step-body">Capture quick pickup and return photos inside your booking chat. Once your outfit is returned as received, undisputed deposits refund automatically and your community reputation grows.</div>
             </div>
           </div>
         </div>
@@ -635,35 +634,35 @@
   <div class="how-section" style="border-top:1px solid rgba(184,147,62,0.18);">
     <div class="maahu-inner">
       <div style="max-width:760px;margin:0 auto 48px;text-align:center;">
-        <div class="how-label" style="justify-content:center;">Built on Trust &amp; Evidence</div>
-        <h2 class="how-title">Every Safeguard, <em>Engineered In</em></h2>
-        <p class="section-body" style="margin:20px auto 0;">Community trust works best when the platform protects both sides automatically. Every booking combines identity verification, timestamped photographic proof, and server-authoritative settlement.</p>
+        <div class="how-label" style="justify-content:center;">Built on Trust</div>
+        <h2 class="how-title">What If Something <em>Goes Wrong?</em></h2>
+        <p class="section-body" style="margin:20px auto 0;">Every exchange is designed to protect both women equally — clear identity checks, photo proof at handover, and refundable deposits so relationships stay warm and stress-free.</p>
       </div>
 
       <div class="pillar-grid-3">
         <div class="pillar-card-light">
           <div class="pillar-num">01</div>
-          <h3>Aadhaar Secure QR</h3>
-          <p>Cryptographic UIDAI-signed QR verification confirms real identity before any user can lend, borrow, or post — without storing raw biometric data or asking for selfies.</p>
+          <h3>Official Aadhaar QR Check</h3>
+          <p>Every transacting member verifies through official Aadhaar QR before lending, borrowing, or posting — keeping the circle real, women-only, and accountable.</p>
         </div>
         <div class="pillar-card-light">
           <div class="pillar-num">02</div>
-          <h3>Handover Photo Proof</h3>
-          <p>Pickup and return photos are uploaded straight to private signed storage inside your real-time booking chat — creating an undisputed visual record of condition.</p>
+          <h3>Pickup &amp; Return Photos</h3>
+          <p>Both sides capture condition photos at pickup and return right inside your booking chat, so there is always a clear, shared record if a question ever comes up.</p>
         </div>
         <div class="pillar-card-light">
           <div class="pillar-num">03</div>
-          <h3>Protected Deposits &amp; Support</h3>
-          <p>Refundable security deposits and transparent platform fees are shown upfront. Undisputed deposits auto-refund on clean return, and Tara AI plus Maahu's dispute team resolve edge cases quickly.</p>
+          <h3>Protected Deposits &amp; Care Support</h3>
+          <p>Refundable security deposits refund automatically once your piece comes home cleanly. If there is ever damage or disagreement, ask Tara or let Maahu's team review and step in fairly.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="big-cta">
-    <div class="cta-eye">Mumbai · iOS &amp; Android Beta · 2026</div>
+    <div class="cta-eye">Mumbai · Founding Squad · 2026</div>
     <h2 class="cta-title">Ready to Meet<br>Your <em>Community?</em></h2>
-    <p class="cta-sub">The founding Mumbai squad gets early access to AI closet digitization, Wardrobe ROI analytics, and Mumbai's trusted circle.</p>
+    <p class="cta-sub">The founding Mumbai squad gets early access to your digital closet, wardrobe insights, and Mumbai's first trusted community wardrobe.</p>
     <a href="/join" class="btn-gold">Join the Founding Squad</a>
   </div>
 
@@ -671,14 +670,13 @@
     <div class="footer-top">
       <div>
         <div class="footer-brand-name">Maahu<span>.</span></div>
-        <div class="footer-tagline">India's AI-powered community wardrobe. Wear more. Own less. Trust more.</div>
+        <div class="footer-tagline">India's first community wardrobe. Wear more. Own less. Trust more.</div>
       </div>
       <div>
         <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
           <li><a href="/">Home</a></li>
           <li><a href="/how-it-works">How It Works</a></li>
-          <li><a href="/technology">Technology &amp; AI</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/join">Join the Founding Squad</a></li>
         </ul>
@@ -696,6 +694,7 @@
         <div class="footer-col-title">Company &amp; Legal</div>
         <ul class="footer-links">
           <li><a href="/about">Our Story</a></li>
+          <li><a href="/technology">Platform &amp; Tech</a></li>
           <li><a href="/privacy">Privacy Policy</a></li>
           <li><a href="/terms">Terms of Service</a></li>
           <li><a href="/delete-account">Account Deletion</a></li>
@@ -708,7 +707,7 @@
       <a href="https://www.instagram.com/maahu.ai/" target="_blank" rel="noopener noreferrer" class="footer-insta">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:6px;"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="12" cy="12" r="4.5" stroke="currentColor" stroke-width="1.5" fill="none"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@maahu.ai
       </a>
-      <div class="footer-city">Mumbai · iOS &amp; Android Beta</div>
+      <div class="footer-city">Launching Mumbai · 2026</div>
     </div>
   </footer>
 

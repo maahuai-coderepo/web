@@ -233,7 +233,8 @@ const puppeteer = require('puppeteer');
 ## Brand Voice Rules
 - CTA: "Join the Founding Squad" (everywhere) or "Join Beta Access" / "Join the Squad"
 - No Hindi on website
-- Full platform capabilities are showcased publicly: AI Closet Digitizer, Wardrobe Financial ROI, Tara AI Concierge, Style Circle, Private Closet Share, Aadhaar Secure QR, Photo Handover Checkpoints, and Google Cloud / Vertex AI architecture
+- Full consumer features are showcased warmly without developer/cloud jargon on user-facing pages (`index.html`, `how-it-works.html`, `about.html`): Digital Closet & Smart Tagging, Closet Finance & Wardrobe Insights, Tara Wardrobe Concierge, Style Circle, Private Closet Links, Official Aadhaar QR verification, Pickup & Return photo checkpoints, and Protected Deposits.
+- Technical / Google Cloud / Vertex AI architecture lives strictly on the dedicated `/technology` page (linked discreetly in the footer as `Platform & Tech` for cloud/partner/investor reviewers) so consumer marketing stays warm, stylish, and human.
 - Contact / grievance email: `hello@maahu.ai`
 - Legal entity in footer: `© 2026 Maahu AI Digital Private Limited · maahu.ai`
 - Tone: warm, financially intelligent, technically credible, culturally specific to Indian women

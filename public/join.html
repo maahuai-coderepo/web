@@ -455,7 +455,6 @@
     <ul class="nav-links">
       <li><a href="/">Home</a></li>
       <li><a href="/how-it-works">How It Works</a></li>
-      <li><a href="/technology">Technology</a></li>
       <li><a href="/blog">Journal</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/join" class="nav-cta">Join the Founding Squad</a></li>
@@ -470,7 +469,6 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/how-it-works">How It Works</a></li>
-      <li><a href="/technology">Technology</a></li>
       <li><a href="/blog">Journal</a></li>
       <li><a href="/about">About</a></li>
     </ul>
@@ -612,6 +610,23 @@
       var input = label.querySelector('input[type="radio"]');
       if (input) input.checked = true;
     };
+
+    // Pre-select intent when routed from marketing funnels (?intent=lend|borrow|both)
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var intent = params.get('intent');
+      if (intent) {
+        var radio = document.querySelector('input[name="intent"][value="' + intent + '"]');
+        if (radio && radio.closest('.radio-label')) {
+          window.pickRadio(radio.closest('.radio-label'));
+          var sub = document.querySelector('.form-sub');
+          if (sub) {
+            if (intent === 'lend') sub.textContent = 'Ready to put your Mumbai wardrobe to work. Takes 60 seconds.';
+            else if (intent === 'borrow') sub.textContent = 'Get first access to verified Mumbai closets for your next occasion.';
+          }
+        }
+      }
+    })();
 
     // Form submit → save to Firestore
     window.handleSubmit = async function(e) {
