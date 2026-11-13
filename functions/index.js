@@ -15,7 +15,15 @@ function sha256(value) {
     .digest("hex");
 }
 
+function normalizePhoneDigits(value) {
+  if (!value) return null;
+  let digits = String(value).replace(/\D/g, "");
+  if (digits.length === 10) digits = `91${digits}`;
+  return digits.length >= 10 && digits.length <= 15 ? digits : null;
+}
+
 async function sendMetaEvent(eventName, eventId, doc, accessToken) {
+  const normalizedPhone = normalizePhoneDigits(doc.phone);
   const payload = {
     data: [
       {
@@ -26,6 +34,7 @@ async function sendMetaEvent(eventName, eventId, doc, accessToken) {
         event_id: eventId,
         user_data: {
           em: doc.email ? [sha256(doc.email)] : undefined,
+          ph: normalizedPhone ? [sha256(normalizedPhone)] : undefined,
         },
         custom_data: {
           content_name:

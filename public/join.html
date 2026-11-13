@@ -528,8 +528,12 @@
             <input type="text" id="f-name" class="form-input" placeholder="First name is fine" required />
           </div>
           <div class="form-group">
-            <label class="form-label">Email Address</label>
-            <input type="email" id="f-email" class="form-input" placeholder="you@email.com" required />
+            <label class="form-label" for="f-email">Email Address</label>
+            <input type="email" id="f-email" class="form-input" placeholder="you@email.com" autocomplete="email" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-phone">WhatsApp / Mobile Number</label>
+            <input type="tel" id="f-phone" class="form-input" placeholder="+91 98200 00000" inputmode="tel" autocomplete="tel" required />
           </div>
           <div class="form-group">
             <label class="form-label">Your Mumbai Neighbourhood</label>
@@ -575,8 +579,11 @@
       <div class="form-success" id="form-success">
         <span class="success-icon">🧡</span>
         <h3 class="success-title">You're in the Squad.</h3>
-        <p class="success-body">We'll be in touch when Maahu launches in Mumbai. In the meantime, read the Closet Finance journal — real numbers from real Indian wardrobes.</p>
-        <a href="/blog" class="btn-dark">Read the Journal →</a>
+        <p class="success-body">Your spot is saved. Step inside our private Mumbai Founding Circle on WhatsApp for early closet drops, beta invites, and member perks.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;align-items:center;">
+          <a href="https://chat.whatsapp.com/KG8rOQVD8Dv3qwS8nJyAux" target="_blank" rel="noopener noreferrer" class="btn-dark" style="background:#1A140D;color:#F7F0E6;border:1px solid #B8933E;">Join the WhatsApp Circle →</a>
+          <a href="/blog" class="btn-dark" style="background:transparent;color:#1A140D;border:1px solid rgba(26,20,13,0.28);">Read Closet Finance Journal →</a>
+        </div>
       </div>
     </div>
 
@@ -638,6 +645,27 @@
 
       var name         = document.getElementById('f-name').value.trim();
       var email        = document.getElementById('f-email').value.trim().toLowerCase();
+      var rawPhone     = document.getElementById('f-phone').value.trim();
+      var phoneDigits  = rawPhone.replace(/\D/g, '');
+      if (phoneDigits.length === 10) {
+        phoneDigits = '91' + phoneDigits;
+      }
+      if (phoneDigits.length < 10 || phoneDigits.length > 15) {
+        btn.textContent = 'Join the Founding Squad →';
+        btn.disabled = false;
+        var existingPhoneErr = document.getElementById('submit-error');
+        if (!existingPhoneErr) {
+          existingPhoneErr = document.createElement('p');
+          existingPhoneErr.id = 'submit-error';
+          existingPhoneErr.style.cssText = 'font-size:12px;color:#c0392b;margin-top:10px;letter-spacing:0.03em;';
+          btn.parentNode.insertBefore(existingPhoneErr, btn.nextSibling);
+        }
+        existingPhoneErr.textContent = 'Please enter a valid 10-digit WhatsApp / mobile number.';
+        return;
+      }
+      var existingErr = document.getElementById('submit-error');
+      if (existingErr) existingErr.remove();
+
       var neighbourhood = document.getElementById('f-neighbourhood').value;
       var intentInput  = document.querySelector('input[name="intent"]:checked');
       var intent       = intentInput ? intentInput.value : 'not selected';
@@ -652,6 +680,7 @@
         await addDoc(collection(db, 'squad_signups'), {
           name:          name,
           email:         email,
+          phone:         '+' + phoneDigits,
           neighbourhood: neighbourhood,
           intent:        intent,
           source:        'join_page',
